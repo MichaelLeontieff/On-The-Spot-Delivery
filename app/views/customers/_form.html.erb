@@ -1,16 +1,5 @@
+<%= render("shared/errors", obj: @customer) %>
 <%= form_for(customer, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-    <% if customer.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
-
-        <ul>
-        <% customer.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
     <div class="form-group">
       <label for="username" class="col-sm-4 control-label">Username</label>
       <div class="col-sm-6">
@@ -39,7 +28,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" id="offset">
       <div class="col-sm-6">
         <div class="radio-inline">
           <label>
