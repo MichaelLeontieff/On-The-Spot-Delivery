@@ -1,0 +1,18 @@
+<div class="form-container">
+  <div class="panel panel-default">
+    <div class="panel-heading text-center">Customer Log In</div>
+      <div class="panel-body">
+        <%= form_for(:session, url: customer_login_path) do |f| %>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: "form-control", placeholder: "Enter email" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
+          </div>
+          <%= f.submit "Log in", class: "btn btn-default" %>
+        <% end %>
+      </div>
+    </div>
+</div>

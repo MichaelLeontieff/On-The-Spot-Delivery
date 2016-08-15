@@ -27,7 +27,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
     if @customer.save
       flash[:success] = "Customer account successfully created"
-      redirect_to login_path
+      redirect_to customer_login_path
 
     else
       render 'new'
@@ -54,6 +54,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:username, :first_name, :last_name, :card_no, :card_type, :ccv, :card_expiry, :street, :suburb, :postcode, :city, :email)
+      params.require(:customer).permit(:username, :first_name, :last_name, :card_no, :card_type, :ccv, :card_expiry, :street, :suburb, :postcode, :city, :email, :password)
     end
 end
