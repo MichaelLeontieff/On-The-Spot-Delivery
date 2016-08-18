@@ -2,8 +2,7 @@
 
 <div class="left-menu">
   <ul>
-    <li>Order Delivery Service</li>
-    <li>View Account Information</li>
+    <li><%= link_to("View Account Information", customer_path(session[:user_id]), )%></li>
   </ul>
 
 </div>
