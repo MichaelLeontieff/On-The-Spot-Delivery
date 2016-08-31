@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user_id %>
+</p>
+
+<p>
+  <strong>No packages:</strong>
+  <%= @order.no_packages %>
+</p>
+
+<p>
+  <strong>Gross weight:</strong>
+  <%= @order.gross_weight %>
+</p>
+
+<p>
+  <strong>Pickup time:</strong>
+  <%= @order.pickup_time %>
+</p>
+
+<p>
+  <strong>Destination address one:</strong>
+  <%= @order.destination_address_one %>
+</p>
+
+<p>
+  <strong>Destination address two:</strong>
+  <%= @order.destination_address_two %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

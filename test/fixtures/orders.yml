@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: MyString
+  no_packages: MyString
+  gross_weight: MyString
+  pickup_time: MyString
+  destination_address_one: MyString
+  destination_address_two: MyString
+
+two:
+  user_id: MyString
+  no_packages: MyString
+  gross_weight: MyString
+  pickup_time: MyString
+  destination_address_one: MyString
+  destination_address_two: MyString
