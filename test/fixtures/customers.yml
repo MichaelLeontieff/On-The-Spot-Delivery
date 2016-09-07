@@ -1,6 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  username: Test
+  first_name: Testy
+  last_name: McTestFace
+  card_no: 1234
+  card_type: Visa
+  ccv: 120
+  card_expiry: 1234
+  street: Test
+  suburb: Test
+  postcode: Test
+  city: Test
+  email: test@test.com
+
+test:
   username: MyString
   first_name: MyString
   last_name: MyString
