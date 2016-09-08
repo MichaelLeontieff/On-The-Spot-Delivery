@@ -1,0 +1,10 @@
+<div class="left-menu">
+  <h1>
+    Customer Dashboard
+  </h1>
+  <ul>
+    <li><%= link_to("View Account Information", customer_path(session[:user_id]) )%></li>
+    <li><%= link_to("Place an Order", new_order_path )%></li>
+  </ul>
+
+</div>
