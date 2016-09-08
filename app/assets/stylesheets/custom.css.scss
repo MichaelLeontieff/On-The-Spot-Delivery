@@ -35,7 +35,9 @@ footer small {
 
 .left-menu h1 {
   margin: 0px;
-  padding: 0px;
+  padding-bottom: 20px;
+  text-align: center;
+  color: #666666;
 }
 
 .form-group {
@@ -46,11 +48,17 @@ footer small {
   float: left;
   width: 20%;
   min-width: 150px;
-  padding: 20px;
-  border-right: 1px solid;
+  //padding: 20px;
+  border-right: 1px solid #999999;
   height: 100vh;
   margin-right: 20px;
 
+}
+
+.center-links {
+  text-align: center;
+  border-top: 1px solid #999999;
+  border-bottom: 1px solid #999999;
 }
 
 .form-right {
@@ -62,7 +70,8 @@ footer small {
   float: right;
 }
 
-.sub-headings {
+.sub-heading {
+  color: #666666;
   padding-bottom: 20px;
   font-size: 15px;
   margin-bottom: 50px;
