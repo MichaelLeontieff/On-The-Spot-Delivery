@@ -10,7 +10,7 @@ class Customer < ApplicationRecord
   validates :suburb, presence: true
   validates :postcode, presence: true
   validates :city, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
   validates :password, presence: true
   has_secure_password
 end

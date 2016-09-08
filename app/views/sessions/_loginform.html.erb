@@ -5,11 +5,11 @@
         <%= form_for(:session, url: customer_login_path) do |f| %>
           <div class="form-group">
             <%= f.label :email %>
-            <%= f.email_field :email, class: "form-control", placeholder: "Enter email" %>
+            <%= f.email_field :email, class: "form-control", placeholder: "Enter Email" %>
           </div>
           <div class="form-group">
             <%= f.label :password %>
-            <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
+            <%= f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "Enter Password" %>
           </div>
           <%= f.submit "Log in", class: "btn btn-default" %>
         <% end %>

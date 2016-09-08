@@ -1,3 +1,4 @@
+<%= require_user %>
 <p id="notice"><%= notice %></p>
 
 <%= render('layouts/sidebar') %>
@@ -5,6 +6,12 @@
 <div class="form-right">
   <div class="form-order-container">
     <div class="sub-heading"><h1>Order Submitted</h1></div>
+
+    <p>
+      <strong>ID of Customer:</strong>
+      <%= @order.user_id %>
+    </p>
+
     <p>
       <strong>No packages:</strong>
       <%= @order.no_packages %>

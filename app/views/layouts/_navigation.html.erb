@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Bob's Package Delivery</a>
+      <a class="navbar-brand">Bob's Package Delivery</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,13 +17,18 @@
         <li><a href="#">About Us</a></li>
         <li><a href="#">Contact Us</a></li>
         <li><a href="#">FAQ</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Management <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Driver Login</a></li>
-            <li><a href="#">Operator Login</a></li>
-          </ul>
-        </li>
+        <% if logged_in? %>
+            <li><%= link_to 'Log Out', customer_logout_path, method: :delete %></li>
+        <% else %>
+            <li><%= link_to 'Log In', customer_login_path %></li>
+        <% end %>
+        <!--<li class="dropdown">-->
+          <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Management <span class="caret"></span></a>-->
+          <!--<ul class="dropdown-menu">-->
+            <!--<li><a href="#">Driver Login</a></li>-->
+            <!--<li><a href="#">Operator Login</a></li>-->
+          <!--</ul>-->
+        <!--</li>-->
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

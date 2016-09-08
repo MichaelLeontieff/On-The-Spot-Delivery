@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bob's Package Delivery</title>
+    <title>On The Spot Couriers</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,9 +11,7 @@
 
   <body>
     <%= render('layouts/navigation') %>
-      <%= render('layouts/messages') %>
-
-      <%= yield %>
-    </div>
+    <%= render('layouts/messages') %>
+    <%= yield %>
   </body>
 </html>

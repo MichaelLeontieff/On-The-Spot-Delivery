@@ -17,7 +17,16 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create order" do
     assert_difference('Order.count') do
-      post orders_url, params: { order: { destination_address_one: @order.destination_address_one, destination_address_two: @order.destination_address_two, gross_weight: @order.gross_weight, no_packages: @order.no_packages, pickup_time: @order.pickup_time, user_id: @order.user_id } }
+      post orders_url, params: { order: { receiver_name: @order.receiver_name,
+                                          receiver_street: @order.receiver_street,
+                                          receiver_suburb: @order.receiver_suburb,
+                                          receiver_city: @order.receiver_city,
+                                          receiver_postcode: @order.postcode,
+                                          insurance: @order.insurance,
+                                          gross_weight: @order.gross_weight,
+                                          no_packages: @order.no_packages,
+                                          pickup_time: @order.pickup_time,
+                                          user_id: @order.user_id } }
     end
 
     assert_redirected_to order_url(Order.last)
@@ -34,7 +43,16 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update order" do
-    patch order_url(@order), params: { order: { destination_address_one: @order.destination_address_one, destination_address_two: @order.destination_address_two, gross_weight: @order.gross_weight, no_packages: @order.no_packages, pickup_time: @order.pickup_time, user_id: @order.user_id } }
+    patch order_url(@order), params: { order: { receiver_name: @order.receiver_name,
+                                                receiver_street: @order.receiver_street,
+                                                receiver_suburb: @order.receiver_suburb,
+                                                receiver_city: @order.receiver_city,
+                                                receiver_postcode: @order.receiver_postcode,
+                                                insurance: @order.insurance,
+                                                gross_weight: @order.gross_weight,
+                                                no_packages: @order.no_packages,
+                                                pickup_time: @order.pickup_time,
+                                                user_id: @order.user_id } }
     assert_redirected_to order_url(@order)
   end
 

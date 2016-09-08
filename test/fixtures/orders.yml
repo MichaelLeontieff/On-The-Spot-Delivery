@@ -5,13 +5,20 @@ one:
   no_packages: MyString
   gross_weight: MyString
   pickup_time: MyString
-  destination_address_one: MyString
-  destination_address_two: MyString
-
+  receiver_name: MyString
+  receiver_street: MyString
+  receiver_suburb: MyString
+  receiver_city: MyString
+  receiver_postcode: MyString
+  insurance: MyString
 two:
   user_id: MyString
   no_packages: MyString
   gross_weight: MyString
   pickup_time: MyString
-  destination_address_one: MyString
-  destination_address_two: MyString
+  receiver_name: MyString
+  receiver_street: MyString
+  receiver_suburb: MyString
+  receiver_city: MyString
+  receiver_postcode: MyString
+  insurance: MyString
