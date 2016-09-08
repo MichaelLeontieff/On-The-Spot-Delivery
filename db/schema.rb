@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831072225) do
+ActiveRecord::Schema.define(version: 20160907004258) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "username"
@@ -35,10 +35,14 @@ ActiveRecord::Schema.define(version: 20160831072225) do
     t.string   "no_packages"
     t.string   "gross_weight"
     t.string   "pickup_time"
-    t.string   "destination_address_one"
-    t.string   "destination_address_two"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "receiver_name"
+    t.string   "receiver_street"
+    t.string   "receiver_suburb"
+    t.string   "receiver_city"
+    t.string   "receiver_postcode"
+    t.string   "insurance"
   end
 
 end

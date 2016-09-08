@@ -1,34 +1,60 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @order.user_id %>
-</p>
+<%= render('layouts/sidebar') %>
 
-<p>
-  <strong>No packages:</strong>
-  <%= @order.no_packages %>
-</p>
+<div class="form-right">
+  <div class="form-order-container">
+    <div class="sub-heading"><h1>Order Submitted</h1></div>
+    <p>
+      <strong>No packages:</strong>
+      <%= @order.no_packages %>
+    </p>
 
-<p>
-  <strong>Gross weight:</strong>
-  <%= @order.gross_weight %>
-</p>
+    <p>
+      <strong>Gross weight:</strong>
+      <%= @order.gross_weight %>
+    </p>
 
-<p>
-  <strong>Pickup time:</strong>
-  <%= @order.pickup_time %>
-</p>
+    <p>
+      <strong>Pickup time:</strong>
+      <%= @order.pickup_time %>
+    </p>
 
-<p>
-  <strong>Destination address one:</strong>
-  <%= @order.destination_address_one %>
-</p>
+    <p>
+      <strong>Receiver Name:</strong>
+      <%= @order.receiver_name %>
+    </p>
 
-<p>
-  <strong>Destination address two:</strong>
-  <%= @order.destination_address_two %>
-</p>
+    <p>
+      <strong>Receiver Street:</strong>
+      <%= @order.receiver_street %>
+    </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+    <p>
+      <strong>Receiver Suburb:</strong>
+      <%= @order.receiver_suburb %>
+    </p>
+
+    <p>
+      <strong>Receiver City:</strong>
+      <%= @order.receiver_city %>
+    </p>
+
+    <p>
+      <strong>Receiver Postcode:</strong>
+      <%= @order.receiver_postcode %>
+    </p>
+
+    <p>
+      <strong>Receiver Insurance:</strong>
+      <%= @order.insurance %>
+    </p>
+
+    <p>
+      <strong>Order Submitted at:</strong>
+      <%= @order.created_at %>
+    </p>
+  </div>
+</div>
+
+

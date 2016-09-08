@@ -16,6 +16,11 @@
   height: 300px;
 }
 
+.form-order-container {
+  width: 800px;
+
+}
+
 footer {
   margin-top: 45px;
   padding-top: 5px;
@@ -27,11 +32,37 @@ footer small {
   float: left;
 }
 
+.left-menu h1 {
+  margin: 0px;
+  padding: 0px;
+}
+
+.form-group {
+  padding-bottom: 10px;
+}
+
 .left-menu {
   float: left;
   width: 20%;
   min-width: 200px;
   padding: 20px;
-  background: #f7f7f7;
+  border-right: 1px solid;
   height: 100vh;
+  margin-right: 20px;
+
+}
+
+.form-right {
+  float: left;
+  width: 700px;
+}
+
+.float-right {
+  float: right;
+}
+
+.sub-headings {
+  padding-bottom: 20px;
+  font-size: 15px;
+  margin-bottom: 50px;
 }

@@ -28,7 +28,8 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html { redirect_to @order }
+        flash[:success] = "Your order has been submitted"
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -69,6 +70,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:user_id, :no_packages, :gross_weight, :pickup_time, :destination_address_one, :destination_address_two)
+      params.require(:order).permit(:user_id, :no_packages, :gross_weight, :pickup_time, :created_at, :updated_at, :receiver_name, :receiver_street, :receiver_suburb, :receiver_city, :receiver_postcode, :insurance)
     end
 end

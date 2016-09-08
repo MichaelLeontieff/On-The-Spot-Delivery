@@ -1,47 +1,97 @@
-<%= form_for(order) do |f| %>
-  <% if order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<%= render("shared/errors", obj: @order) %>
+<%= form_for(order, :html => {class: "form-vertical form-right", role: "form"}) do |f| %>
+    <% if order.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-      <ul>
-      <% order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <label for="no_packages" class="col-sm-4 control-label">Number of Packages</label>
+      <div class="col-sm-6">
+        <%= f.text_field :no_packages, class: "form-control", placeholder: "No. Packages ie. 3" %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
-  </div>
+    <div class="form-group">
+      <label for="gross_weight" class="col-sm-4 control-label">Gross Weight</label>
+      <div class="col-sm-6">
+        <%= f.text_field :gross_weight, class: "form-control", placeholder: "Weight (kilograms) ie. 2" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :no_packages %>
-    <%= f.text_field :no_packages %>
-  </div>
+    <div class="form-group">
+      <label for="pickup_time" class="col-sm-4 control-label">Pickup Time</label>
+      <div class="col-sm-6">
+        <%= f.text_field :pickup_time, class: "form-control", placeholder: "Time Format (hh:mm)am/pm ie. 11:15am" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :gross_weight %>
-    <%= f.text_field :gross_weight %>
-  </div>
+    <div class="form-group">
+      <label for="receiver_name" class="col-sm-4 control-label">Receiver Name</label>
+      <div class="col-sm-6">
+        <%= f.text_field :receiver_name, class: "form-control", placeholder: "John Doe" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :pickup_time %>
-    <%= f.text_field :pickup_time %>
-  </div>
+    <div class="form-group">
+      <label for="receiver_street" class="col-sm-4 control-label">Receiver Street</label>
+      <div class="col-sm-6">
+        <%= f.text_field :receiver_street, class: "form-control", placeholder: "7 Example Street" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :destination_address_one %>
-    <%= f.text_field :destination_address_one %>
-  </div>
+    <div class="form-group">
+      <label for="receiver_suburb" class="col-sm-4 control-label">Receiver Suburb</label>
+      <div class="col-sm-6">
+        <%= f.text_field :receiver_suburb, class: "form-control", placeholder: "Camp Hill" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :destination_address_two %>
-    <%= f.text_field :destination_address_two %>
-  </div>
+    <div class="form-group">
+      <label for="receiver_city" class="col-sm-4 control-label">Receiver City</label>
+      <div class="col-sm-6">
+        <%= f.text_field :receiver_city, class: "form-control", placeholder: "Brisbane" %>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="form-group">
+      <label for="receiver_postcode" class="col-sm-4 control-label">Receiver Postcode</label>
+      <div class="col-sm-6">
+        <%= f.text_field :receiver_postcode, class: "form-control", placeholder: "4123" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="receiver_postcode" class="col-sm-4 control-label">Insurance</label>
+      <div class="row" id="offset">
+        <div class="col-sm-6">
+          <div class="radio-inline">
+            <label>
+              <%= f.radio_button(:insurance, "Yes", class: "") %>
+              <%= label_tag(:insurance, "Yes", class: "radiobutton") %>
+            </label>
+          </div>
+          <div class="radio-inline">
+            <label>
+              <%= f.radio_button(:insurance, "No", class: "") %>
+              <%= label_tag(:insurance, "No", class: "radiobutton") %>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+  <%= f.submit class: "btn btn-primary float-right" %>
+</div>
+
+
+
 <% end %>
