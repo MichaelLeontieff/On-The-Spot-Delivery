@@ -1,16 +1,6 @@
 <%= render("shared/errors", obj: @order) %>
 <%= form_for(order, :html => {class: "form form-right", role: "form"}) do |f| %>
-    <% if order.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-        <ul>
-        <% order.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
 
     <%= f.hidden_field(:field, :value => params[session[:user_id]]) %>
     <div class="form-group">
