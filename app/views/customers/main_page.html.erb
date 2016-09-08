@@ -1,9 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<div class="left-menu">
-  <ul>
-    <li><%= link_to("View Account Information", customer_path(session[:user_id]) )%></li>
-    <li><%= link_to("Place an Order", new_order_path )%></li>
-  </ul>
+<%= render('layouts/sidebar') %>
 
 </div>
