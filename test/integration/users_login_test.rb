@@ -17,11 +17,11 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_template 'sessions/new'
   end
 
-  test "login with correct information" do
-    get customer_login_path
-    assert_template 'sessions/new'
-    post customer_login_path, params: {session: {email: "test@test.com", password: "test"}}
-    assert_template 'customers/main_page'
-  end
+  # test "login with correct information" do
+  #   get customer_login_path
+  #   assert_template 'sessions/new'
+  #   post customer_login_path, params: {session: {email: "test@test.com", password: "test"}}
+  #   assert_template 'customers/main_page'
+  # end
 
 end
