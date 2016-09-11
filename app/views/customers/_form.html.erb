@@ -56,7 +56,7 @@
     <div class="form-group">
       <label for="card_no" class="col-sm-4 control-label">Card Expiry Date</label>
       <div class="col-sm-6">
-        <%= f.text_field :card_expiry, class: "form-control", placeholder: "Card Expiry Date" %>
+        <%= f.text_field :card_expiry, class: "form-control", placeholder: "Card Expiry Date", :data => {:provide => "datepicker"} %>
       </div>
     </div>
 
