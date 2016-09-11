@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'customers#new'
 
   get 'main_page', to: 'customers#main_page'
-
+  get 'aboutus', to: 'pages#aboutus'
   get 'customer/login', to: 'sessions#new'
   post 'customer/login', to:'sessions#create'
   delete 'customer/logout', to: 'sessions#destroy'
