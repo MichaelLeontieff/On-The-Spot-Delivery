@@ -1,4 +1,4 @@
-<%= require_user %>
+<%= require_customer %>
 <p id="notice"><%= notice %></p>
 
 <h1>Orders</h1>
@@ -23,8 +23,6 @@
         <td><%= order.no_packages %></td>
         <td><%= order.gross_weight %></td>
         <td><%= order.pickup_time %></td>
-        <td><%= order.destination_address_one %></td>
-        <td><%= order.destination_address_two %></td>
         <td><%= link_to 'Show', order %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>

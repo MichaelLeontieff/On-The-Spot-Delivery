@@ -7,8 +7,11 @@
     <h1>On the Spot Couriers</h1>
     <p>
       On the Spot Couriers is one of Brisbane's leading logistics companies. We will deliver up to two pallets worth of goods same day if booked before 11am, with all other deliveries shipped overnight.</p>
-    <p><%= link_to("Login", customer_login_path, class: "btn btn-success btn-lg") %>
-      <%= link_to("Sign Up", signup_path, class: "btn btn-primary btn-lg") %></p>
+    <p>
+      <% if !customer_logged_in? %>
+          <%= link_to("Login", customer_login_path, class: "btn btn-success btn-lg") %>
+          <%= link_to("Sign Up", signup_path, class: "btn btn-primary btn-lg") %></p>
+      <% end %>
   </div>
 
   <div class="map">

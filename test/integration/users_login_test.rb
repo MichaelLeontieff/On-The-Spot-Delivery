@@ -12,9 +12,9 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   test "login with incorrect information" do
     get customer_login_path
-    assert_template 'sessions/new'
+    assert_template 'customer_sessions/new'
     post customer_login_path, params: {session: {email: "", password: ""}}
-    assert_template 'sessions/new'
+    assert_template 'customer_sessions/new'
   end
 
   # test "login with correct information" do

@@ -17,7 +17,7 @@
         <li><a href="#">About Us</a></li>
         <li><a href="#">Contact Us</a></li>
         <li><a href="#">FAQ</a></li>
-        <% if logged_in? %>
+        <% if customer_logged_in? %>
             <li><%= link_to 'Log Out', customer_logout_path, method: :delete %></li>
         <% else %>
             <li><%= link_to 'Log In', customer_login_path %></li>

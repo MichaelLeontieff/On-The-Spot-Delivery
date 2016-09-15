@@ -1,0 +1,43 @@
+<%= render("shared/errors", obj: @driver) %>
+<%= form_for(driver, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+
+    <div class="form-group">
+      <label for="company_email" class="col-sm-4 control-label">Company Email</label>
+      <div class="col-sm-6">
+        <%= f.email_field :company_email, class: "form-control", placeholder: "username@onthespotdelivery.com.au" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="first_name" class="col-sm-4 control-label">First Name</label>
+      <div class="col-sm-6">
+        <%= f.text_field :first_name, class: "form-control", placeholder: "John" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="last_name" class="col-sm-4 control-label">Last Name</label>
+      <div class="col-sm-6">
+        <%= f.text_field :last_name, class: "form-control", placeholder: "Doe" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="assigned_truck_rego" class="col-sm-4 control-label">Assigned Truck Rego</label>
+      <div class="col-sm-6">
+        <%= f.text_field :assigned_truck_rego, class: "form-control", placeholder: "195JDA" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="col-sm-4 control-label">Password</label>
+      <div class="col-sm-6">
+        <%= f.password_field :password_digest, class: "form-control", placeholder: "Picked By Driver" %>
+      </div>
+    </div>
+
+
+    <%= f.submit class: "btn btn-primary button-float" %>
+
+<% end %>
+
