@@ -1,15 +1,15 @@
-class SessionsController < ApplicationController
+class DriverSessionsController < ApplicationController
 
   def new
 
   end
 
   def create
-    customer = Customer.find_by(email: params[:session][:email])
-    if customer && customer.authenticate(params[:session][:password])
-      session[:user_id] = customer.id
+    driver = Driver.find_by(company_email: params[:session][:company_email])
+    if driver && driver.authenticate(params[:session][:password])
+      session[:driver_id] = driver.id
       flash[:success] = "You have successfully logged in"
-      redirect_to main_page_path
+      redirect_to driver_main_page_path
     else
       flash.now[:danger] = "There was something wrong with your login information"
       render 'new'
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    session[:driver_id] = nil
     flash[:success] = "You have logged out"
     redirect_to root_path
   end

@@ -26,7 +26,7 @@ class Customer < ApplicationRecord
   validates :postcode, presence: true, numericality: true, length: {minimum: 4, maximum: 4}
   validates :city, presence: true
   validates :email, presence: true, length: {maximum: 100}, uniqueness: {case_sensitive: false }, format: {with: VALID_EMAIL_REGEX}
-  validates :password, presence: true, length: {minimum: 6, maximum: 20}
+  validates :password, presence: true
 
   has_secure_password
 end

@@ -1,20 +1,46 @@
-<div class="container">
-<div class="banner-image">
-
-</div>
-<br>
+<div class="row fullwidth">
   <div class="jumbotron">
-    <h1>On the Spot Couriers</h1>
-    <p>
-      On the Spot Couriers is one of Brisbane's leading logistics companies. We will deliver up to two pallets worth of goods same day if booked before 11am, with all other deliveries shipped overnight.</p>
-    <p>
+    <div class="container">
+      <h1 align="center">On the Spot Couriers</h1>
+      <p align="center"> On the Spot Couriers is one of Brisbane's leading logistics companies. We will deliver up to two pallets worth of goods same day if booked before 11am, with all other deliveries shipped overnight.</p>
+      <p align="center"><%= link_to("Login", customer_login_path, class: "btn btn-success btn-lg") %>
+        <%= link_to("Sign Up", signup_path, class: "btn btn-primary btn-lg") %></p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row padfix">
+    <div class="col-md-6">
+
+
+    </div>
+
+      <iframe src="https://www.google.com/maps/d/embed?mid=1gPiH-UgSOGYf_eLhmljmC4lZ29s" width="100%" height="600"></iframe>
+
+
+  </div>
+</div>
       <% if !customer_logged_in? %>
           <%= link_to("Login", customer_login_path, class: "btn btn-success btn-lg") %>
           <%= link_to("Sign Up", signup_path, class: "btn btn-primary btn-lg") %></p>
       <% end %>
-  </div>
-
-  <div class="map">
-    <iframe src="https://www.google.com/maps/d/embed?mid=1gPiH-UgSOGYf_eLhmljmC4lZ29s" width="100%" height="600" align="center"></iframe>
-  </div>
-</div>
