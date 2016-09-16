@@ -42,7 +42,7 @@ class DriversControllerTest < ActionDispatch::IntegrationTest
   #   assert_difference('Driver.count', -1) do
   #     delete driver_url(@driver)
   #   end
-
-    assert_redirected_to drivers_url
+    #
+    # assert_redirected_to drivers_url
   end
 end
