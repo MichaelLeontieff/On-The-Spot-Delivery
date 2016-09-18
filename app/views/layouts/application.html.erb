@@ -10,9 +10,11 @@
   </head>
 
   <body>
+      <div class="container fullwidth">
       <%= render('layouts/navigation') %>
       <%= render('layouts/messages') %>
-      <%= yield %>
 
+      <%= yield %>
+      </div>
   </body>
 </html>
