@@ -1,7 +1,7 @@
 <%= require_customer %>
 <p id="notice"><%= notice %></p>
 
-<%= render('layouts/sidebar') %>
+<%= render('layouts/customer_sidebar') %>
 
 <div class="form-right">
   <div class="form-order-container">
@@ -9,7 +9,7 @@
 
     <p>
       <strong>ID of Customer:</strong>
-      <%= @order.user_id %>
+      <%= @order.customer_id %>
     </p>
 
     <p>

@@ -9,6 +9,7 @@
 }
 
 .banner {
+  background: asset-url("Envelopes.jpg") no-repeat;
   border-top: 4px solid #999999;
   border-bottom: 4px solid #999999;
   margin-top: 20px;
@@ -18,6 +19,23 @@
   //color: white;
 
   padding-top: 100px;
+}
+
+.banner-other-pages {
+  background: asset-url("Envelopes.jpg") no-repeat;
+  border-top: 4px solid #999999;
+  border-bottom: 4px solid #999999;
+  margin-top: 20px;
+  background-color: #BBBBBB;
+  width: 100%;
+  height: 400px;
+  //color: white;
+
+  padding-top: 135px;
+}
+
+.absolute {
+  z-index: 1000;
 }
 
 .contents-left {
@@ -36,7 +54,7 @@
 
 /* Content Pages - Custom Jumbotron */
 .jumbotron-content{
-  background: asset-url("red.jpg") no-repeat center center;
+
   width: 100%;
   height: 300px;
   top:0;
@@ -136,7 +154,7 @@ footer small {
   color: #666666;
   padding-bottom: 20px;
   font-size: 15px;
-  margin-bottom: 50px;
+  //margin-bottom: 50px;
 }
 
 .messages {

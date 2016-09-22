@@ -1,17 +1,6 @@
 class Customer < ApplicationRecord
-  # has_many :orders
-  # validates :username, presence: true
-  # validates :first_name, presence: true
-  # validates :last_name, presence: true
-  # validates :card_no, presence: true
-  # validates :card_type, presence: true
-  # validates :card_expiry, presence: true
-  # validates :street, presence: true
-  # validates :suburb, presence: true
-  # validates :postcode, presence: true
-  # validates :city, presence: true
-  # validates :email, presence: true, uniqueness: true
-  # validates :password, presence: true
+  has_many :orders
+
   VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
   validates :username, presence: true, uniqueness: {case_sensitive: false}, length: {minimum: 3, maximum: 25}
@@ -24,9 +13,9 @@ class Customer < ApplicationRecord
   validates :street, presence: true
   validates :suburb, presence: true
   validates :postcode, presence: true, numericality: true, length: {minimum: 4, maximum: 4}
-  validates :city, presence: true
-  validates :email, presence: true, length: {maximum: 100}, uniqueness: {case_sensitive: false }, format: {with: VALID_EMAIL_REGEX}
-  validates :password, presence: true
+  validates :city, presence: true, numericality: false
+  validates :email, presence: true, length: {maximum: 100}, uniqueness: true, format: {with: VALID_EMAIL_REGEX}
+  validates :password, presence: true, length: {minimum: 8}
 
   has_secure_password
 end

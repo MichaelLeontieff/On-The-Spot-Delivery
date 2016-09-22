@@ -1,0 +1,16 @@
+<%= require_driver %>
+
+<p id="notice"><%= notice %></p>
+
+<%= render('layouts/driver_sidebar') %>
+
+
+<% @names.each do |c| %>
+    <li><%= c.first_name %></li>
+<% end %>
+
+
+
+
+
+

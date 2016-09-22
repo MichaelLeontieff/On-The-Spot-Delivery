@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'customers#new'
 
   get 'main_page', to: 'customers#main_page'
+  get 'driver_management_page', to: 'drivers#driver_main_page'
   get 'aboutus', to: 'pages#aboutus'
   get 'contactus', to: 'pages#contactus'
   get 'faq', to: 'pages#faqpage'
