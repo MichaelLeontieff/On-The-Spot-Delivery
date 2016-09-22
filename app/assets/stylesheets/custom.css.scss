@@ -150,6 +150,28 @@ footer small {
   float: right;
 }
 
+.menu li{
+  list-style-type: none;
+}
+
+.phone {
+  background: asset-url("phone-receiver.png") no-repeat center;
+  width: 200px;
+  height: 200px;
+}
+
+.address {
+  background: asset-url("location.png") no-repeat center;
+  width: 200px;
+  height: 200px;
+}
+
+.email {
+  background: asset-url("envelope.png") no-repeat center;
+  width: 200px;
+  height: 200px;
+}
+
 .sub-heading {
   color: #666666;
   padding-bottom: 20px;
