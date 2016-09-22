@@ -3,28 +3,58 @@
 
 /* Navbar - Remove Bottom Margin */
 .navbar{
-  margin-bottom: 0px !important;
+  border-color: transparent;
+  margin-bottom: 15px !important;
   border-radius: 0px !important;
 }
 
-
-
-/* Homepage - Custom Jumbotron */
-.jumbotron{
-  background: asset-url("red.jpg") no-repeat center center;
+.banner {
+  background: asset-url("Envelopes.jpg") no-repeat;
+  border-top: 4px solid #999999;
+  border-bottom: 4px solid #999999;
+  margin-top: 20px;
+  background-color: #BBBBBB;
   width: 100%;
-  //height: 400px;
-  //top:0;
-  //left:0;
-  z-index: -1;
-  color: white;
-  text-shadow: #444 0 1px 1px;
+  height: 400px;
+  //color: white;
+
   padding-top: 100px;
+}
+
+.banner-other-pages {
+  background: asset-url("Envelopes.jpg") no-repeat;
+  border-top: 4px solid #999999;
+  border-bottom: 4px solid #999999;
+  margin-top: 20px;
+  background-color: #BBBBBB;
+  width: 100%;
+  height: 400px;
+  //color: white;
+
+  padding-top: 135px;
+}
+
+.absolute {
+  z-index: 1000;
+}
+
+.contents-left {
+  text-align: left;
+
+}
+
+.contents-middle {
+  text-align: center;
+  text-justify: distribute;
+}
+
+.contents-right {
+  text-align: right;
 }
 
 /* Content Pages - Custom Jumbotron */
 .jumbotron-content{
-  background: asset-url("red.jpg") no-repeat center center;
+
   width: 100%;
   height: 300px;
   top:0;
@@ -33,6 +63,7 @@
   color: white;
   text-shadow: #444 0 1px 1px;
   padding-top: 100px;
+  border-radius: 0px;
 }
 
 /* Login Page - Vertical Padding */
@@ -46,22 +77,31 @@
 }
 
 
-//.banner-image {
-//  background-image: asset-url("banner_home.jpg");
-//  background-repeat: no-repeat;
-//  background-position: center;
-//  background-size: cover;
-//  border-radius: 5px;
-//  margin-left: auto;
-//  margin-right: auto;
-//  width: 500px;
-//  height: 300px;
-//}
+.banner-image {
+  background-image: asset-url("banner_home.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 300px;
+}
 
 .form-order-container {
   width: 600px;
 
 }
+
+.form-container {
+
+}
+
+.page-top-margin {
+  margin-top: 50px;
+}
+
 
 footer {
   margin-top: 45px;
@@ -110,11 +150,33 @@ footer small {
   float: right;
 }
 
+.menu li{
+  list-style-type: none;
+}
+
+.phone {
+  background: asset-url("phone-receiver.png") no-repeat center;
+  width: 200px;
+  height: 200px;
+}
+
+.address {
+  background: asset-url("location.png") no-repeat center;
+  width: 200px;
+  height: 200px;
+}
+
+.email {
+  background: asset-url("envelope.png") no-repeat center;
+  width: 200px;
+  height: 200px;
+}
+
 .sub-heading {
   color: #666666;
   padding-bottom: 20px;
   font-size: 15px;
-  margin-bottom: 50px;
+  //margin-bottom: 50px;
 }
 
 .messages {

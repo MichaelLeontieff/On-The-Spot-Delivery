@@ -7,6 +7,10 @@ class DriversController < ApplicationController
     @drivers = Driver.all
   end
 
+  def driver_main_page
+    @names = Customer.where(:id => Order.select("customer_id"))
+  end
+
   # GET /drivers/1
   # GET /drivers/1.json
   def show
@@ -56,6 +60,11 @@ class DriversController < ApplicationController
       format.html { redirect_to drivers_url, notice: 'Driver was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+
+  def return_customers_table
+    @customers = Customer.all
   end
 
   private

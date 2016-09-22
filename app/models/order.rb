@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  has_one :customer, :dependent => :destroy
+
   # User id is injected afterwards, as the currently logged in user places the order and the id is sourced from that
   # not user input
   #validates :user_id, presence: true, uniqueness: {case_sensitive: false}, length: {minimum: 3, maximum: 25}
