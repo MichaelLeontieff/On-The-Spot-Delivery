@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_customer, :customer_logged_in?, :require_customer, :require_driver, :driver_logged_in?
 
+  def anyone_logged_in
+
+  end
+
   def current_customer
     @current_customer ||= Customer.find(session[:user_id]) if session[:user_id]
   end
