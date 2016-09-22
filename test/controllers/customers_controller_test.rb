@@ -2,8 +2,7 @@ require 'test_helper'
 
 class CustomersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @attrs1 = {card_expiry: "06/20", card_no: "12345678", card_type: "VISA", ccv: "900", city: "Brisbane", email: "test@testing.com", first_name: "testFirstName", last_name: "testLastName", postcode: "0000", street: "Test Ave", suburb: "Testville", username:
-      "testUsername"}
+    @attrs1 = {card_expiry: "06/20", card_no: "123456789012345", card_type: "VISA", ccv: "900", city: "Brisbane", email: "test@testing.com", first_name: "testFirstName", last_name: "testLastName", postcode: "0000", street: "Test Ave", suburb: "Testville", username:"testUsername", password: "test"}
 
   end
 
@@ -36,7 +35,7 @@ class CustomersControllerTest < ActionDispatch::IntegrationTest
     invalidEmails.each do |val|
       @attrs1[:email] = val
       customer = Customer.new(@attrs1)
-      customer.invalid?(:email)
+      assert_not customer.save, "Saved Customer with invalid email: #{val}"
     end
   end
 
@@ -46,9 +45,14 @@ class CustomersControllerTest < ActionDispatch::IntegrationTest
       tmp = key
       @attrs1[key] = ""
       customer = Customer.new(@attrs1)
-      customer.invalid?(:email)
+      assert_not customer.save, "Saved Customer with no #{key}"
       @attrs1[key] = tmp
     end
+   end
+
+   test "passwords should be encrypted" do
+    customer = Customer.create(@attrs1)
+    assert_not_equal @attrs1[:password], customer.password_digest
    end
 
 end
