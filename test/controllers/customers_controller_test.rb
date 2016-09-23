@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CustomersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @attrs1 = {card_expiry: "06/20", card_no: "123456789012345", card_type: "VISA", ccv: "900", city: "Brisbane", email: "test@testing.com", first_name: "testFirstName", last_name: "testLastName", postcode: "0000", street: "Test Ave", suburb: "Testville", username:"testUsername", password: "test"}
+    @attrs1 = {card_expiry: "06/20", card_no: "123456789012345", card_type: "VISA", ccv: "900", city: "Brisbane", email: "test@testing.com", first_name: "testFirstName", last_name: "testLastName", postcode: "0000", street: "Test Ave", suburb: "Testville", username:"testUsername", password: "testtest"}
 
   end
 
