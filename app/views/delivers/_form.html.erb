@@ -1,0 +1,69 @@
+<%= render("shared/errors", obj: @deliver) %>
+<%= form_for(deliver, :html => {class: "form form-right", role: "form"}) do |f| %>
+
+    <div class="form-group">
+      <label for="order_id" class="col-sm-4 control-label">Corresponding Order ID</label>
+      <div class="col-sm-6">
+        <%= f.collection_select :order_id, @array,:to_s, :to_s, {:class => 'output'} %>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <label for="collected" class="col-sm-4 control-label">Package Delivered</label>
+      <div class="row" id="offset">
+        <div class="col-sm-6">
+          <div class="radio-inline">
+            <label>
+              <%= f.radio_button(:package_delivered, "Yes", class: "") %>
+              <%= label_tag(:package_delivered, "Yes", class: "radiobutton") %>
+            </label>
+          </div>
+          <div class="radio-inline">
+            <label>
+              <%= f.radio_button(:package_delivered, "No", class: "") %>
+              <%= label_tag(:package_delivered, "No", class: "radiobutton") %>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="charge" class="col-sm-4 control-label">Receiver Signature (blank if not required)</label>
+      <div class="col-sm-6">
+        <div class="sigPad">
+          <label for="name">Print your name</label>
+          <input type="text" name="name" id="name" class="name" style="width: 350px;">
+          <p class="typeItDesc sigWidth">Review your signature</p>
+          <p class="drawItDesc sigWidth">Draw your signature</p>
+          <ul class="sigNav">
+            <li class="typeIt"><a href="#type-it" class="current">Type It</a></li>
+            <li class="drawIt"><a href="#draw-it" >Draw It</a></li>
+            <li class="clearButton"><a href="#clear">Clear</a></li>
+          </ul>
+          <div class="sig sigWrapper sigWidth">
+            <div class="typed"></div>
+            <canvas class="pad sigWidth" width="300" height="55"></canvas>
+
+            <%= f.hidden_field :signature, {:class => 'output', :name => 'output'} %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group movebottom">
+      <%= f.submit class: "btn btn-primary float-right" %>
+    </div>
+<% end %>
+
+<script src="../jquery.signaturepad.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.sigPad').signaturePad();
+  });
+</script>
+<script src="../assets/json2.min.js"></script>

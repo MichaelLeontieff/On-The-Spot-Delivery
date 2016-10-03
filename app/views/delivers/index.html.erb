@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Delivers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Package delivered</th>
+      <th>Signature</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @delivers.each do |deliver| %>
+      <tr>
+        <td><%= deliver.id %></td>
+        <td><%= deliver.package_delivered %></td>
+        <td><%= deliver.signature %></td>
+        <td><%= link_to 'Show', deliver %></td>
+        <td><%= link_to 'Edit', edit_deliver_path(deliver) %></td>
+        <td><%= link_to 'Destroy', deliver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Deliver', new_deliver_path %>

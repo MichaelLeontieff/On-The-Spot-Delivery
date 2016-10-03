@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @deliver.id %>
+</p>
+
+<p>
+  <strong>Package delivered:</strong>
+  <%= @deliver.package_delivered %>
+</p>
+
+<p>
+  <strong>Signature:</strong>
+  <%= @deliver.signature %>
+</p>
+
+<%= link_to 'Edit', edit_deliver_path(@deliver) %> |
+<%= link_to 'Back', delivers_path %>

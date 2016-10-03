@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :delivers
   resources :checkingins
   resources :pickups
   resources :drivers

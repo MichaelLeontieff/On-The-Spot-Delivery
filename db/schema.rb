@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003015334) do
+ActiveRecord::Schema.define(version: 20161003054340) do
 
   create_table "checkingins", force: :cascade do |t|
     t.integer  "order_id"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20161003015334) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "delivers", force: :cascade do |t|
+    t.integer  "order_id"
+    t.string   "package_delivered"
+    t.string   "signature"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "drivers", force: :cascade do |t|
