@@ -1,0 +1,1 @@
+json.partial! "checkingins/checkingin", checkingin: @checkingin

@@ -1,0 +1,2 @@
+module CheckinginsHelper
+end

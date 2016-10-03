@@ -28,7 +28,9 @@ class DriversController < ApplicationController
   # POST /drivers
   # POST /drivers.json
   def create
+    temp = driver_params[:company_email]
     @driver = Driver.new(driver_params)
+    @driver.company_email = temp.concat("@driver.onthespot.com.au")
     if @driver.save
       flash[:success] = "Driver account successfully created"
       redirect_to driver_login_path

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 
+  collected: MyString
+  signature: MyString
+  charge: MyString
+
+two:
+  id: 
+  collected: MyString
+  signature: MyString
+  charge: MyString

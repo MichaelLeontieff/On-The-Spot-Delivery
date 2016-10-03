@@ -1,0 +1,76 @@
+<%= render("shared/errors", obj: @pickup) %>
+<%= form_for(pickup, :html => {class: "form form-right", role: "form"}) do |f| %>
+
+
+
+    <div class="form-group">
+      <label for="order_id" class="col-sm-4 control-label">Corresponding Order ID</label>
+      <div class="col-sm-6">
+        <%= f.collection_select :order_id, @array,:to_s, :to_s, {:class => 'output'} %>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <label for="charge" class="col-sm-4 control-label">Payment Amount Collected</label>
+      <div class="col-sm-6">
+        <%= f.text_field :charge, class: "form-control", placeholder: "order total eg: $24.00" %>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <label for="collected" class="col-sm-4 control-label">Package Collected</label>
+      <div class="row" id="offset">
+        <div class="col-sm-6">
+          <div class="radio-inline">
+            <label>
+              <%= f.radio_button(:collected, "Yes", class: "") %>
+              <%= label_tag(:collected, "Yes", class: "radiobutton") %>
+            </label>
+          </div>
+          <div class="radio-inline">
+            <label>
+              <%= f.radio_button(:collected, "No", class: "") %>
+              <%= label_tag(:collected, "No", class: "radiobutton") %>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="signature" class="col-sm-4 control-label">Signature Required</label>
+      <div class="row" id="offset">
+        <div class="col-sm-6">
+          <div class="radio-inline">
+            <label>
+              <%= f.radio_button(:signature, "Yes", class: "") %>
+              <%= label_tag(:signature, "Yes", class: "radiobutton") %>
+            </label>
+          </div>
+          <div class="radio-inline">
+            <label>
+              <%= f.radio_button(:signature, "No", class: "") %>
+              <%= label_tag(:signature, "No", class: "radiobutton") %>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+    <%= f.submit class: "btn btn-primary float-right" %>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+

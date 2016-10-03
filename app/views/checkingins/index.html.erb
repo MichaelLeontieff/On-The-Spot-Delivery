@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Checkingins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Checked in</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @checkingins.each do |checkingin| %>
+      <tr>
+        <td><%= checkingin.id %></td>
+        <td><%= checkingin.checked_in %></td>
+        <td><%= link_to 'Show', checkingin %></td>
+        <td><%= link_to 'Edit', edit_checkingin_path(checkingin) %></td>
+        <td><%= link_to 'Destroy', checkingin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Checkingin', new_checkingin_path %>

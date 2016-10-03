@@ -1,0 +1,27 @@
+<%= form_for(checkingin) do |f| %>
+  <% if checkingin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(checkingin.errors.count, "error") %> prohibited this checkingin from being saved:</h2>
+
+      <ul>
+      <% checkingin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id %>
+    <%= f.number_field :id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :checked_in %>
+    <%= f.text_field :checked_in %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @checkingin.id %>
+</p>
+
+<p>
+  <strong>Checked in:</strong>
+  <%= @checkingin.checked_in %>
+</p>
+
+<%= link_to 'Edit', edit_checkingin_path(@checkingin) %> |
+<%= link_to 'Back', checkingins_path %>

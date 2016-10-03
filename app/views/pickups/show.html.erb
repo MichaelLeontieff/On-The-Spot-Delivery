@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @pickup.id %>
+</p>
+
+<p>
+  <strong>Collected:</strong>
+  <%= @pickup.collected %>
+</p>
+
+<p>
+  <strong>Signature:</strong>
+  <%= @pickup.signature %>
+</p>
+
+<p>
+  <strong>Charge:</strong>
+  <%= @pickup.charge %>
+</p>
+
+<%= link_to 'Edit', edit_pickup_path(@pickup) %> |
+<%= link_to 'Back', pickups_path %>

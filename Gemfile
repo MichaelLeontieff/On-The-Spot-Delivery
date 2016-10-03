@@ -7,6 +7,9 @@ gem 'rails', '~> 5.0.0'
 # date picker
 gem 'bootstrap-datepicker-rails'
 
+# signature pad
+gem 'signature-pad-rails'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

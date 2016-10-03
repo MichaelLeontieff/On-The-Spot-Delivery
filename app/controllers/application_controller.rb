@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_customer, :customer_logged_in?, :require_customer, :require_driver, :driver_logged_in?
+  helper_method :current_customer, :user_logged_in?, :customer_logged_in?, :require_customer, :require_driver, :driver_logged_in?
 
   def anyone_logged_in
 
@@ -19,16 +19,20 @@ class ApplicationController < ActionController::Base
     #@current_user ||= Customer.find(session[:user_id]) if session[:user_id]
   end
 
+  def user_logged_in?
+    return !!current_customer || !!current_driver || !!current_operator
+  end
+
   def customer_logged_in?
-    !!current_customer
+    return !!current_customer
   end
 
   def driver_logged_in?
-    !!current_driver
+    return !!current_driver
   end
 
   def operator_logged_in?
-    !!current_operator
+    return !!current_operator
   end
 
   def require_customer

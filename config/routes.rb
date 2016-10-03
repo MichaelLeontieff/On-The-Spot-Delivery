@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :checkingins
+  resources :pickups
   resources :drivers
   resources :orders, except: 'orders'
   resources :customers, except: 'customers#new'
@@ -13,19 +15,9 @@ Rails.application.routes.draw do
   get 'faq', to: 'pages#faqpage'
 
   # Customer Session Stuff
-  get 'customer/login', to: 'customer_sessions#new'
-  post 'customer/login', to:'customer_sessions#create'
-  delete 'customer/logout', to: 'customer_sessions#destroy'
-
-  # Driver Session Stuff
-  get 'driver/login', to: 'driver_sessions#new'
-  post 'driver/login', to:'driver_sessions#create'
-  delete 'driver/logout', to: 'driver_sessions#destroy'
-
-  # Operator Session Stuff
-  get 'operator/login', to: 'operator_sessions#new'
-  post 'operator/login', to:'operator_sessions#create'
-  delete 'operator/logout', to: 'operator_sessions#destroy'
+  get 'user/login', to: 'sessions#new'
+  post 'user/login', to:'sessions#create'
+  delete 'user/logout', to: 'sessions#destroy'
 
 
 end
