@@ -7,6 +7,10 @@ class OperatorsController < ApplicationController
     @operators = Operator.all
   end
 
+  def operator_main_page
+
+  end
+
   # GET /operators/1
   # GET /operators/1.json
   def show

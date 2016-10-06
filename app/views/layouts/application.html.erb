@@ -12,9 +12,13 @@
   <body>
       <div class="container fullwidth">
       <%= render('layouts/navigation') %>
-      <%= render('layouts/messages') %>
 
-      <%= yield %>
+        <div class="main">
+          <%= render('layouts/messages') %>
+
+          <%= yield %>
+        </div>
+
       </div>
   </body>
 </html>

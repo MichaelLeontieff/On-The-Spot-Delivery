@@ -126,6 +126,7 @@ footer small {
 }
 
 .left-menu {
+  position: fixed;
   float: left;
   width: 20%;
   min-width: 150px;
@@ -133,6 +134,58 @@ footer small {
   height: 100vh;
   margin-right: 20px;
 
+}
+
+.position-fixed {
+  z-index: 9999;
+  position: fixed;
+
+}
+
+.main {
+  margin-top: 50px;
+}
+
+.right-content {
+  margin-left: 20%;
+  float: right;
+  width: 70%;
+
+}
+
+.order-state {
+  width: 75%;
+}
+
+.status-table {
+  width: 100%;
+}
+
+.status-table td {
+  width: 50%;
+  padding: 10px;
+}
+
+.status-inner-progress-bar {
+  margin: 0px;
+  width: 100%;
+  float: right;
+}
+
+.header-row-order-status {
+  border-bottom: 1px solid #999999;
+  line-height: 2;
+}
+.success {
+  color: green;
+}
+
+.in-progress {
+  color: yellow;
+}
+
+.not-picked-up {
+  color: red;
 }
 
 .center-links {
