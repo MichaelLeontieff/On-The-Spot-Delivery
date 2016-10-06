@@ -23,6 +23,7 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     session[:driver_id] = nil
+    session[:operator_id] = nil
     flash[:success] = "You have logged out"
     redirect_to root_path
   end
@@ -58,6 +59,18 @@ class SessionsController < ApplicationController
       session[:driver_id] = driver.id
       flash[:success] = "You have successfully logged in"
       redirect_to driver_management_page_path
+    else
+      flash.now[:danger] = "There was something wrong with your login information"
+      render 'new'
+    end
+  end
+
+  def auth_operator
+    operator = Operator.find_by(company_email: params[:session][:email])
+    if operator && operator.authenticate(params[:session][:password])
+      session[:operator_id] = operator.id
+      flash[:success] = "You have successfully logged in"
+      redirect_to operator_management_page_path
     else
       flash.now[:danger] = "There was something wrong with your login information"
       render 'new'

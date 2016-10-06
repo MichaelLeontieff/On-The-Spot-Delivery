@@ -1,0 +1,37 @@
+<%= form_for(operator) do |f| %>
+  <% if operator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(operator.errors.count, "error") %> prohibited this operator from being saved:</h2>
+
+      <ul>
+      <% operator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_email %>
+    <%= f.text_field :company_email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

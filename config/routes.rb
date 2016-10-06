@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :operators
   resources :delivers
   resources :checkingins
   resources :pickups
@@ -9,16 +10,24 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'signup', to: 'customers#new'
 
-  get 'main_page', to: 'customers#main_page'
-  get 'driver_management_page', to: 'drivers#driver_main_page'
+ # static page routes
   get 'aboutus', to: 'pages#aboutus'
   get 'contactus', to: 'pages#contactus'
   get 'faq', to: 'pages#faqpage'
 
-  # Customer Session Stuff
+  # User Session Stuff
   get 'user/login', to: 'sessions#new'
   post 'user/login', to:'sessions#create'
   delete 'user/logout', to: 'sessions#destroy'
+
+  # Driver Stuff
+  get 'driver_management_page', to: 'drivers#driver_main_page'
+
+  # Customer Stuff
+  get 'main_page', to: 'customers#main_page'
+
+  # Operator Stuff
+  get 'operator_management_page', to: 'operators#operator_main_page'
 
 
 end
