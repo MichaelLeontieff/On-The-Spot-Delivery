@@ -2,9 +2,9 @@
 <p id="notice"><%= notice %></p>
 
 <%= render('layouts/customer_sidebar') %>
+<div class="left-menu-space"></div>
 
-<div class="form-right">
-  <div class="form-order-container">
+<div class="right-content form-right">
     <div class="sub-heading"><h1>Order Submitted</h1></div>
 
     <p>
@@ -61,7 +61,6 @@
       <strong>Order Submitted at:</strong>
       <%= @order.created_at %>
     </p>
-  </div>
 </div>
 
 

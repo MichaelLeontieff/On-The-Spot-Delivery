@@ -1,12 +1,26 @@
-<%= render("shared/errors", obj: @order) %>
+<!-- basic JQuery to hide form submit button until user confirms order -->
+<script>
+$( document ).ready(function() {
+  $( "#initial-submit" ).show();
+
+  $( "#initial-submit" ).click(function() {
+    $( "#final-submit" ).show();
+  });
+
+  $( "#fail-submit" ).click(function() {
+    $( "#final-submit" ).hide();
+  });
+});
+
+</script>
+
 <%= form_for(order, :html => {class: "form form-right", role: "form"}) do |f| %>
-
-
+    <%= render("shared/errors", obj: @order) %>
     <%= f.hidden_field(:field, :value => params[session[:user_id]]) %>
     <div class="form-group">
       <label for="no_packages" class="col-sm-4 control-label">Number of Packages</label>
       <div class="col-sm-6">
-        <%= f.text_field :no_packages, class: "form-control", placeholder: "No. Packages ie. 3" %>
+        <%= f.text_field :no_packages, class: "form-control", placeholder: "No. Packages ie. 3", id: "no_packages" %>
       </div>
     </div>
   <br>
@@ -79,10 +93,21 @@
       </div>
     </div>
 </br>
-    <div class="form-group">
-  <%= f.submit class: "btn btn-primary float-right", data: { confirm: 'Are you sure you want to place this order?' } %>
-</div>
+
+    <!-- Initial form button, doesn't submit, rather triggers prompt-->
+    <div id="initial-submit" style="display: none;">
+      <a class="btn btn-primary float-right">Create Order</a>
+    </div>
+
+
+
+    <div class="form-group" id="final-submit" style="display: none;">
+      Is the above information correct?
+      <%= f.submit "Yes", class: "btn btn-primary" %>
+      <a class="btn btn-primary" id="fail-submit">No</a>
+    </div>
 
 
 
 <% end %>
+

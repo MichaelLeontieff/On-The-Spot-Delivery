@@ -33,7 +33,7 @@ class DriversController < ApplicationController
     @driver.company_email = temp.concat("@driver.onthespot.com.au")
     if @driver.save
       flash[:success] = "Driver account successfully created"
-      redirect_to driver_login_path
+      redirect_to user_login_path
 
     else
       render 'new'

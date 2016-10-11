@@ -117,28 +117,59 @@ footer small {
 .left-menu h1 {
   margin: 0px;
   padding-bottom: 20px;
+  padding-top: 20px;
   text-align: center;
-  color: #666666;
+  color: #FFFFFF;
+}
+
+.nav-links li a {
+  color: #CCCCCC;
 }
 
 .form-group {
   padding-bottom: 10px;
 }
 
+/* Management page CSS */
+
+/* links menu */
 .left-menu {
   position: fixed;
   float: left;
-  width: 20%;
-  min-width: 150px;
-  border-right: 1px solid #999999;
+  width: 250px;
+  border-right: 2px solid #999999;
   height: 100vh;
   margin-right: 20px;
+  background-color: #454444;
+}
+
+.left-menu-space {
+  float: left;
+  min-width: 250px;
+  height: 100vh;
+  margin-right: 20px;
+}
+
+/* Management page content */
+.right-content {
+  padding-top: 50px;
+  padding-left: 50px;
+  width: 1000px;
 
 }
 
 .position-fixed {
   z-index: 9999;
   position: fixed;
+}
+
+.messages-fixed {
+  z-index: 9999;
+  position: fixed;
+  width: 20%;
+  margin-left: 40%;
+  margin-right: 40%;
+
 
 }
 
@@ -146,11 +177,9 @@ footer small {
   margin-top: 50px;
 }
 
-.right-content {
-  margin-left: 20%;
-  float: right;
-  width: 70%;
-
+/*main content div which includes margin*/
+.main-include-margin {
+  margin-top: 100px;
 }
 
 .order-state {
@@ -159,6 +188,13 @@ footer small {
 
 .status-table {
   width: 100%;
+}
+
+/*Format Progress bar*/
+.progress-format {
+  margin: 0px;
+  width: 50%;
+  float: right;
 }
 
 .status-table td {
@@ -188,15 +224,15 @@ footer small {
   color: red;
 }
 
-.center-links {
+.center-links li {
   text-align: center;
   border-top: 1px solid #999999;
-  border-bottom: 1px solid #999999;
+
 }
 
 .form-right {
   float: left;
-  width: 700px;
+  width: 500px;
 }
 
 .float-right {

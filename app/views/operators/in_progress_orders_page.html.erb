@@ -1,0 +1,26 @@
+<%= require_operator %>
+
+<p id="notice"><%= notice %></p>
+
+<%= render('layouts/operator_sidebar') %>
+<div class="left-menu-space"></div>
+
+<div class="right-content form-right">
+
+  <!-- New Orders -->
+
+  <div class="sub-heading">
+    <h1>In Progress Orders</h1>
+    <hr>
+    <p>Orders that have been placed and picked up by drivers but yet to be delivered</p>
+  </div>
+  <div class="container padfix">
+    <div class="panel-group" id="accordion">
+      <% @in_progress_orders_page.each do |order| %>
+          <%= render('layouts/inprogressorderstatepartial', id: order[0], tracker: order[1], percentage: order[2], time: order[3],
+                     collapse: order[4], status: order[5]) %>
+      <% end %>
+    </div>
+  </div>
+
+</div>

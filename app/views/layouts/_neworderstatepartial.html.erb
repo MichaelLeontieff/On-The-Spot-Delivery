@@ -1,0 +1,39 @@
+<!--order status partial-->
+<!-- variables: o_id : order id number-->
+<!-- variables: tracker : number of steps in process completed-->
+
+<div class="panel panel-default order-state">
+  <div class="panel-heading" style="overflow: auto;">
+    <h4 class="panel-title">
+      <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#<%= collapse %>">
+
+        <div class="status-title" style="width: 50%; float: left;">
+          Order ID: <%= id %> Date Placed: <%= time %>
+        </div>
+
+      </a>
+    </h4>
+  </div>
+  <div id="<%= collapse %>" class="panel-collapse collapse">
+    <div class="panel-body">
+      <table class="status-table">
+        <tr class="header-row-order-status">
+          <td>Current Order Status: </td>
+          <td class="success"><%= status %></td>
+        </tr>
+
+        <tr>
+          <td>Order Placed By: </td>
+          <td><%= sender_name %></td>
+
+        </tr>
+        <tr>
+          <td>Order Recipient:  </td>
+          <td><%= recipient_name %></td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+</div>
+<!--partial end-->

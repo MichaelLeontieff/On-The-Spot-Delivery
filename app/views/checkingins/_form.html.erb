@@ -2,32 +2,25 @@
 <%= form_for(checkingin, :html => {class: "form form-right", role: "form"}) do |f| %>
 
     <div class="form-group">
-      <label for="order_id" class="col-sm-4 control-label">Corresponding Order ID</label>
-      <div class="col-sm-6">
+      <label for="order_id">Corresponding Order ID: </label></br>
         <%= f.collection_select :order_id, @array,:to_s, :to_s, {:class => 'output'} %>
-      </div>
     </div>
 
-<br>
+
+
 
     <div class="form-group">
-      <label for="collected" class="col-sm-4 control-label">Check In</label>
-      <div class="row" id="offset">
-        <div class="col-sm-6">
-          <div class="radio-inline">
+      <label for="collected">Check In: </label></br>
             <label>
               <%= f.radio_button(:checked_in, "Yes", class: "") %>
               <%= label_tag(:checked_in, "Yes", class: "radiobutton") %>
             </label>
-          </div>
-          <div class="radio-inline">
+
             <label>
               <%= f.radio_button(:checked_in, "No", class: "") %>
               <%= label_tag(:checked_in, "No", class: "radiobutton") %>
             </label>
-          </div>
-        </div>
-      </div>
+
     </div>
 
     <div class="form-group">

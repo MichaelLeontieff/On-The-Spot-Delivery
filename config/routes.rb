@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   # Operator Stuff
   get 'operator_management_page', to: 'operators#operator_main_page'
+  get 'new_orders_page', to: 'operators#new_orders_page'
+  get 'in_progress_orders_page', to: 'operators#in_progress_orders_page'
 
 
 end

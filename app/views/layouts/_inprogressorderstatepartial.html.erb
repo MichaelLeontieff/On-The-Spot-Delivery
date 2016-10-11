@@ -28,49 +28,49 @@
         <tr class="header-row-order-status">
           <td>Current Order Status: </td>
           <td class="success"><%= status %></td>
-          </tr>
+        </tr>
         <% if local_tracker > 0 %>
-          <tr>
-            <td>Pickup Time: </td>
-            <td>
-              <div class="progress status-inner-progress-bar">
-                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
-                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-                  Total Time: 2 Hours
+            <tr>
+              <td>Pickup Time: </td>
+              <td>
+                <div class="progress status-inner-progress-bar">
+                  <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                       aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                    Total Time: 2 Hours
+                  </div>
                 </div>
-              </div>
-            </td>
-          </tr>
-          <% local_tracker -= 1 %>
-        <% end %>
-
-        <% if local_tracker > 0 %>
-          <tr>
-            <td>Check In Time: </td>
-            <td>
-              <div class="progress status-inner-progress-bar">
-                <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar"
-                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-                  Total Time: 6 Hours
-                </div>
-              </div>
-            </td>
-          </tr>
+              </td>
+            </tr>
             <% local_tracker -= 1 %>
         <% end %>
 
         <% if local_tracker > 0 %>
-        <tr>
-          <td>Delivery Time: </td>
-          <td>
-            <div class="progress status-inner-progress-bar">
-              <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar"
-                   aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-                Total Time: 7 Hours
-              </div>
-            </div>
-          </td>
-        </tr>
+            <tr>
+              <td>Check In Time: </td>
+              <td>
+                <div class="progress status-inner-progress-bar">
+                  <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar"
+                       aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:80%">
+                    Total Time: 6 Hours
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <% local_tracker -= 1 %>
+        <% end %>
+
+        <% if local_tracker > 0 %>
+            <tr>
+              <td>Delivery Time: </td>
+              <td>
+                <div class="progress status-inner-progress-bar">
+                  <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar"
+                       aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+                    Total Time: 7 Hours
+                  </div>
+                </div>
+              </td>
+            </tr>
             <% local_tracker -= 1 %>
         <% end %>
       </table>

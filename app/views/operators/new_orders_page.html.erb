@@ -1,0 +1,26 @@
+<%= require_operator %>
+
+<p id="notice"><%= notice %></p>
+
+<%= render('layouts/operator_sidebar') %>
+<div class="left-menu-space"></div>
+
+<div class="right-content form-right">
+
+  <!-- New Orders -->
+
+  <div class="sub-heading">
+    <h1>New Orders</h1>
+    <hr>
+    <p>Newly placed orders that have not been picked up by drivers</p>
+  </div>
+  <div class="container padfix">
+    <div class="panel-group" id="accordion">
+      <% @new_orders_page.each do |order| %>
+          <%= render('layouts/neworderstatepartial', id: order[0], sender_name: order[1],recipient_name: order[2],
+                     time: order[3], collapse: order[4], status: order[5]) %>
+      <% end %>
+    </div>
+  </div>
+
+</div>

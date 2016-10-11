@@ -28,6 +28,9 @@
           <% if driver_logged_in? %>
               <li><%= link_to 'Driver Management', driver_management_page_path %></li>
           <% end %>
+          <% if operator_logged_in? %>
+              <li><%= link_to 'Operator Management', operator_management_page_path %></li>
+          <% end %>
           <% if user_logged_in? %>
               <li><%= link_to 'Log Out', user_logout_path, method: :delete %></li>
           <% else %>
