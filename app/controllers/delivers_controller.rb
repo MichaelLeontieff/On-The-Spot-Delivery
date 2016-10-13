@@ -38,7 +38,8 @@ class DeliversController < ApplicationController
 
     respond_to do |format|
       if @deliver.save
-        format.html { redirect_to @deliver, notice: 'Deliver was successfully created.' }
+        flash[:success] = "Deliver Process Submitted"
+        format.html { redirect_to @deliver }
         format.json { render :show, status: :created, location: @deliver }
       else
         format.html { render :new }

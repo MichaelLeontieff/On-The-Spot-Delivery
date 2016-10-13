@@ -38,7 +38,8 @@ class PickupsController < ApplicationController
 
     respond_to do |format|
       if @pickup.save
-        format.html { redirect_to @pickup, notice: 'Pickup was successfully created.' }
+        flash[:success] = "Pickup Process Submitted"
+        format.html { redirect_to @pickup }
         format.json { render :show, status: :created, location: @pickup }
       else
         format.html { render :new }

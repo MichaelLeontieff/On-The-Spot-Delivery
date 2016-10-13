@@ -35,7 +35,8 @@ class CheckinginsController < ApplicationController
 
     respond_to do |format|
       if @checkingin.save
-        format.html { redirect_to @checkingin, notice: 'Checkingin was successfully created.' }
+        flash[:success] = "Check-in Process Submitted"
+        format.html { redirect_to @checkingin }
         format.json { render :show, status: :created, location: @checkingin }
       else
         format.html { render :new }
