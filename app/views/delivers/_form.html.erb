@@ -23,7 +23,7 @@
 
 
     <div class="form-group" style="margin-left: 220px">
-      <label for="charge">Receiver Signature (blank if not required): </label></br>
+      <label for="charge">Receiver Signature: </label></br>
         <div class="sigPad">
           <label for="name">Print your name</label>
           <input type="text" name="name" id="name" class="name" style="">
@@ -37,7 +37,7 @@
           <div class="sig">
             <div class="typed"></div>
             <canvas class="pad" width="200" height="55"></canvas>
-            <%= f.hidden_field :signature, {:class => 'output', :name => 'output'} %>
+            <%= f.hidden_field :signature, {:class => 'output', :name => 'signature'} %>
           </div>
         </div>
     </div>

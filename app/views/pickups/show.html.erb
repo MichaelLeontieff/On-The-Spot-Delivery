@@ -1,8 +1,14 @@
-<p id="notice"><%= notice %></p>
+<%= require_driver %>
+
+<%= render('layouts/driver_sidebar') %>
+<div class="left-menu-space"></div>
+
+<div class="right-content form-right">
+  <div class="sub-heading"><h1>Pickup Process Complete!</h1></div>
 
 <p>
   <strong>Id:</strong>
-  <%= @pickup.id %>
+  <%= @pickup.order_id %>
 </p>
 
 <p>
@@ -20,5 +26,4 @@
   <%= @pickup.charge %>
 </p>
 
-<%= link_to 'Edit', edit_pickup_path(@pickup) %> |
-<%= link_to 'Back', pickups_path %>
+  </div>

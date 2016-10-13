@@ -1,8 +1,14 @@
-<p id="notice"><%= notice %></p>
+<%= require_driver %>
+
+<%= render('layouts/driver_sidebar') %>
+<div class="left-menu-space"></div>
+
+<div class="right-content form-right">
+  <div class="sub-heading"><h1>Deliver Process Complete!</h1></div>
 
 <p>
   <strong>Id:</strong>
-  <%= @deliver.id %>
+  <%= @deliver.order_id %>
 </p>
 
 <p>
@@ -12,8 +18,7 @@
 
 <p>
   <strong>Signature:</strong>
-  <%= @deliver.signature %>
+  Entered
 </p>
 
-<%= link_to 'Edit', edit_deliver_path(@deliver) %> |
-<%= link_to 'Back', delivers_path %>
+</div>

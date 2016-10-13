@@ -1,8 +1,14 @@
-<p id="notice"><%= notice %></p>
+<%= require_driver %>
+
+<%= render('layouts/driver_sidebar') %>
+<div class="left-menu-space"></div>
+
+<div class="right-content form-right">
+  <div class="sub-heading"><h1>Warehouse Check-in Process Complete!</h1></div>
 
 <p>
   <strong>Id:</strong>
-  <%= @checkingin.id %>
+  <%= @checkingin.order_id %>
 </p>
 
 <p>
@@ -10,5 +16,5 @@
   <%= @checkingin.checked_in %>
 </p>
 
-<%= link_to 'Edit', edit_checkingin_path(@checkingin) %> |
-<%= link_to 'Back', checkingins_path %>
+  </div>
+
