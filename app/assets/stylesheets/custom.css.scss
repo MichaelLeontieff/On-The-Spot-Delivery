@@ -163,6 +163,13 @@ footer small {
   position: fixed;
 }
 
+.panel-heading [data-toggle="collapse"].collapsed:after {
+  display: none !important;
+}
+.panel-heading [data-toggle="collapse"]:after {
+  display:none !important;
+}
+
 .messages-fixed {
   z-index: 9999;
   position: fixed;
