@@ -6,13 +6,14 @@
 <div class="left-menu-space"></div>
 
 <div class="right-content form-right">
-  <div class="sub-heading">
-    <h1>Create Operator Account</h1>
-    <hr>
-    <p>Add Operator record to the system</p>
-  </div>
 
-  <!-- Driver Record -->
-  <%= render 'form', operator: @operator %>
+  <!-- New Orders -->
+
+  <div class="sub-heading">
+    <h1>Process Payment</h1>
+    <hr>
+    <p>The Order below has yet to be charged for</p>
+  </div>
+  <%= render 'form', payment: @payment %>
 
 </div>

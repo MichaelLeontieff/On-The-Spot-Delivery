@@ -20,6 +20,10 @@ class OperatorsController < ApplicationController
     @in_progress_orders_page = in_progress_orders_page_array
   end
 
+  def unpaid_orders_page
+    @orders_awaiting_charge = unpaid_orders_page_array
+  end
+
   # GET /operators/1
   # GET /operators/1.json
   def show
@@ -85,6 +89,33 @@ class OperatorsController < ApplicationController
       params.require(:operator).permit(:first_name, :last_name, :company_email, :password)
     end
 
+    def unpaid_orders_page_array
+      orders = []
+      counter = 1
+
+      # for each unpaid order
+      unpaid_orders_id.each do |id|
+
+        puts "STRING IS: " + id.to_s
+
+
+
+        # fetch actual values
+        sender_name_var = sender_name(id)
+        customer_id = customer_id(id)
+
+        time = time_value(id)
+        collapse = collapse_value(counter)
+        amount_to_charge = amount_to_charge(id)
+
+        # load into array
+        orders << [id, sender_name_var, customer_id, time, collapse, amount_to_charge]
+        # increment counter
+        counter += 1
+      end
+      return orders
+    end
+
     def new_orders_page_array
       orders = []
       counter = 1
@@ -123,6 +154,26 @@ class OperatorsController < ApplicationController
       return full_name
     end
 
+  def customer_id( id )
+    customer_id = Order.find(id).customer_id
+    # safeguard against bad data
+    if customer_id != nil
+      return customer_id
+    else
+      return 0
+    end
+  end
+
+  def amount_to_charge( id )
+    temp = Pickup.find_by order_id: id
+    if temp == nil
+      return "ERROR!"
+    else
+      puts "VALUE IS" + temp[:charge]
+      return "$" + temp[:charge].to_s
+    end
+  end
+
     def recipient_name( id )
       return Order.find(id).receiver_name
     end
@@ -160,6 +211,17 @@ class OperatorsController < ApplicationController
       return @array
     end
 
+  def unpaid_orders_id
+    @order_array = Pickup.all
+    @array = Array.new
+    @order_array.each do |order|
+      if !Payment.exists?(:order_id => order[:id])
+        @array.push(order[:id])
+      end
+    end
+    return @array
+  end
+
   def in_progress_orders_id
     @pickup_array = Pickup.all
     @array = Array.new
@@ -182,7 +244,7 @@ class OperatorsController < ApplicationController
       if Deliver.exists?(:order_id => order_id)
         counter += 1
       end
-      return counter
+      return counter.to_i
     end
 
     def percentage( tracker )

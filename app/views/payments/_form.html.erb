@@ -1,0 +1,28 @@
+<%= render("shared/errors", obj: @payment) %>
+<%= form_for(payment, :html => {role: "form"}) do |f| %>
+
+    <label>Customer Payment Information: </label>
+    <table class="payment-info-table">
+      <% counter = 0 %>
+      <% @info.each do |item| %>
+          <tr>
+          <td><b><%= @names_array[counter] %>:</b></td>
+          <td><%= item %></td>
+          </tr>
+          <% counter += 1 %>
+
+      <% end %>
+    </table>
+
+    </br>
+
+
+    <div class="form-group">
+      <%= f.label :order_id %>
+      <%= f.text_field :order_id, class: "form-control", :value => @order_pass_id, :readonly => true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Click to Mark as 'Paid'", class: "btn btn-primary float-right" %>
+  </div>
+<% end %>

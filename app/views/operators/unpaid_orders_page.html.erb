@@ -1,0 +1,28 @@
+<%= require_operator %>
+
+<p id="notice"><%= notice %></p>
+
+<%= render('layouts/operator_sidebar') %>
+<div class="left-menu-space"></div>
+
+<div class="right-content form-right">
+
+    <!-- New Orders -->
+
+    <div class="sub-heading">
+        <h1>Orders Awaiting Charge</h1>
+        <hr>
+        <p>Orders that have not have their payment processed</p>
+    </div>
+    <div class="container padfix">
+        <div class="panel-group" id="accordion">
+            <% @orders_awaiting_charge.each do |order| %>
+              <% if order[0] != "" %>
+                <%= render('layouts/awaitingchargeorderstatepartial', id: order[0], sender_name_var: order[1],
+                customer_id: order[2], time: order[3], collapse: order[4], amount_to_charge: order[5]) %>
+              <% end %>
+            <% end %>
+
+        </div>
+    </div>
+</div>

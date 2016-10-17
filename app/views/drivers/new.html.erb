@@ -1,10 +1,20 @@
-<div class="main-include-margin">
-  <div class="form-container">
-    <div class="panel panel-default">
-      <div class="panel-heading text-center">Driver Creation</div>
-      <div class="panel-body">
-        <%= render 'form', driver: @driver %>
-      </div>
-    </div>
+<%= require_operator %>
+
+<p id="notice"><%= notice %></p>
+
+<%= render('layouts/operator_sidebar') %>
+<div class="left-menu-space"></div>
+
+<div class="right-content form-right">
+  <div class="sub-heading">
+    <h1>Create Driver Account</h1>
+    <hr>
+    <p>Add Driver record to the system</p>
   </div>
+
+  <!-- New Orders -->
+
+  <%= render 'form', driver: @driver %>
+
+
 </div>

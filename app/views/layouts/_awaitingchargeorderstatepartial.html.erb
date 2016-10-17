@@ -1,0 +1,36 @@
+<!--order status partial-->
+
+
+<div class="panel panel-default order-state">
+  <div class="panel-heading" style="overflow: auto;">
+    <h4 class="panel-title">
+      <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#<%= collapse %>">
+
+        <div class="status-title" style="width: 50%; float: left;">
+          Order ID: <%= id %> Date Placed: <%= time %>
+        </div>
+
+        <div style="float: right;">
+          <%= link_to "Process Payment", process_payment_path(:user_id => customer_id, :order_id => id) %>
+        </div>
+
+      </a>
+    </h4>
+  </div>
+  <div id="<%= collapse %>" class="panel-collapse collapse">
+    <div class="panel-body">
+      <table class="status-table">
+
+        <tr>
+          <td>Amount to Charge: </td>
+          <td><%= amount_to_charge %></td>
+        </tr>
+        <tr>
+          <td>Name of Customer to be charged: </td>
+          <td> <%= sender_name_var %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<!--partial end-->
