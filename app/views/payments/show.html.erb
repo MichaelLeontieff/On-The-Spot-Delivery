@@ -1,14 +1,25 @@
+<%= require_operator %>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Order:</strong>
-  <%= @payment.order_id %>
-</p>
+<%= render('layouts/operator_sidebar') %>
+<div class="left-menu-space"></div>
 
-<p>
-  <strong>Paid:</strong>
-  <%= @payment.paid %>
-</p>
+<div class="right-content form-right">
+  <div class="sub-heading">
+    <h1>Payment Complete</h1>
+    <hr>
+  </div>
 
-<%= link_to 'Edit', edit_payment_path(@payment) %> |
-<%= link_to 'Back', payments_path %>
+  <p>
+    <strong>Order:</strong>
+    <%= @payment.order_id %>
+  </p>
+
+  <p>
+    <strong>Paid:</strong>
+    <%= @payment.paid %>
+  </p>
+
+</div>
+

@@ -5,10 +5,12 @@ $( document ).ready(function() {
 
   $( "#initial-submit" ).click(function() {
     $( "#final-submit" ).show();
+    $( "#initial-submit" ).hide();
   });
 
   $( "#fail-submit" ).click(function() {
     $( "#final-submit" ).hide();
+    $( "#initial-submit" ).show();
   });
 });
 

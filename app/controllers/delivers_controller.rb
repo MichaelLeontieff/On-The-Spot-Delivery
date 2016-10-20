@@ -1,3 +1,8 @@
+# Delivers Controller
+#
+# Contains helper methods and code-behind for 'deliver' objects
+# and their corresponding views and model
+
 class DeliversController < ApplicationController
   before_action :set_deliver, only: [:show, :edit, :update, :destroy]
 

@@ -1,3 +1,7 @@
+# Application Controller
+#
+# Contains helper methods for sessions management
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 

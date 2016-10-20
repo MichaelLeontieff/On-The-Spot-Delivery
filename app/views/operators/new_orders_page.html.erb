@@ -13,13 +13,13 @@
     <hr>
     <p>Newly placed orders that have not been picked up by drivers</p>
   </div>
-  <div class="container padfix">
-    <div class="panel-group" id="accordion">
+
+    <div class="panel-group" id="accordion" style="width: 1100px;">
       <% @new_orders_page.each do |order| %>
           <%= render('layouts/neworderstatepartial', id: order[0], sender_name: order[1],recipient_name: order[2],
                      time: order[3], collapse: order[4], status: order[5]) %>
       <% end %>
     </div>
-  </div>
+
 
 </div>

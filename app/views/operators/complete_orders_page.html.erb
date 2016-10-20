@@ -14,13 +14,12 @@
         <hr>
         <p>Orders that have been Delivered and Charged for</p>
     </div>
-    <div class="container padfix">
-        <div class="panel-group" id="accordion">
+        <div class="panel-group" id="accordion" style="width: 1100px;">
           <% @complete_orders.each do |order| %>
               <%= render('layouts/completeorderstatepartial', id: order[0], amount_to_charge: order[1], time_ordered: order[2], time_delivered: order[3],
                          collapse: order[4]) %>
           <% end %>
         </div>
-    </div>
+
 
 </div>

@@ -1,3 +1,8 @@
+# Driver Controller
+#
+# Contains helper methods and code-behind for 'driver' objects
+# and their corresponding views and model
+
 class DriversController < ApplicationController
   before_action :set_driver, only: [:show, :edit, :update, :destroy]
 
@@ -31,12 +36,15 @@ class DriversController < ApplicationController
     temp = driver_params[:company_email]
     @driver = Driver.new(driver_params)
     @driver.company_email = temp.concat("@driver.onthespot.com.au")
-    if @driver.save
-      flash[:success] = "Driver account successfully created"
-      redirect_to user_login_path
-
-    else
-      render 'new'
+    respond_to do |format|
+      if @driver.save
+        format.html { redirect_to @driver }
+        flash[:success] = "Driver Account has been submitted"
+        format.json { render :show, status: :created, location: @driver }
+      else
+        format.html { render :new }
+        format.json { render json: @driver.errors, status: :unprocessable_entity }
+      end
     end
   end
 

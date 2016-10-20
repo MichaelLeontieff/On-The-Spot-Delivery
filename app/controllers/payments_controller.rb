@@ -1,3 +1,8 @@
+# Payments Controller
+#
+# Contains helper methods and code-behind for 'payment' objects
+# and their corresponding views and model
+
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
 
@@ -54,10 +59,11 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     @payment = Payment.new(payment_params)
-
+    @payment.paid = "Yes"
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
+        flash[:success] = "Payment Process Complete"
+        format.html { redirect_to @payment }
         format.json { render :show, status: :created, location: @payment }
       else
         format.html { render :new }

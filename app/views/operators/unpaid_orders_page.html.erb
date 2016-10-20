@@ -14,8 +14,7 @@
         <hr>
         <p>Orders that have not have their payment processed</p>
     </div>
-    <div class="container padfix">
-        <div class="panel-group" id="accordion">
+        <div class="panel-group" id="accordion" style="width: 1100px;">
             <% @orders_awaiting_charge.each do |order| %>
               <% if order[0] != "" %>
                 <%= render('layouts/awaitingchargeorderstatepartial', id: order[0], sender_name_var: order[1],
@@ -24,5 +23,5 @@
             <% end %>
 
         </div>
-    </div>
+
 </div>

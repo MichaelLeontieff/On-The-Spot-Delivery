@@ -1,3 +1,8 @@
+# Checkingin Controller
+#
+# Contains helper methods and code-behind for 'checkingin' objects
+# and their corresponding views and model
+
 class CheckinginsController < ApplicationController
   before_action :set_checkingin, only: [:show, :edit, :update, :destroy]
 

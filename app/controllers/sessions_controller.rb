@@ -1,3 +1,8 @@
+# Sessions Controller
+#
+# Contains helper methods and code-behind for 'session' objects
+# and their corresponding views and model
+
 class SessionsController < ApplicationController
 
   CUSTOMER = 1

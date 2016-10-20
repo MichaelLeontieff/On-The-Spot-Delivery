@@ -1,3 +1,8 @@
+# Customers Controller
+#
+# Contains helper methods and code-behind for 'customer' objects
+# and their corresponding views and model
+
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 

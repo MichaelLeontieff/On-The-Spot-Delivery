@@ -10,17 +10,17 @@
   <!-- New Orders -->
 
   <div class="sub-heading">
-    <h1>In Progress Orders</h1>
+    <h1>Order Tracking</h1>
     <hr>
-    <p>Orders that have been placed and picked up by drivers but yet to be delivered</p>
+    <p>Tracking information for all orders processed by the system</p>
   </div>
-  <div class="container padfix">
-    <div class="panel-group" id="accordion">
+
+    <div class="panel-group" id="accordion" style="width: 1100px;">
       <% @in_progress_orders_page.each do |order| %>
           <%= render('layouts/inprogressorderstatepartial', id: order[0], tracker: order[1], percentage: order[2], time: order[3],
-                     collapse: order[4], status: order[5]) %>
+                     collapse: order[4], status: order[5], pickup_time: order[6], checkin_time: order[7], deliver_time: order[8]) %>
       <% end %>
     </div>
-  </div>
+
 
 </div>

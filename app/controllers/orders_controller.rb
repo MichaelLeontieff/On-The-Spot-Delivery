@@ -1,3 +1,8 @@
+# Orders Controller
+#
+# Contains helper methods and code-behind for 'order' objects
+# and their corresponding views and model
+
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 

@@ -1,3 +1,8 @@
+# Operator Controller
+#
+# Contains helper methods and code-behind for 'operator' objects
+# and their corresponding views and model
+
 class OperatorsController < ApplicationController
   before_action :set_operator, only: [:show, :edit, :update, :destroy]
   require 'date'
@@ -48,12 +53,15 @@ class OperatorsController < ApplicationController
     temp = operator_params[:company_email]
     @operator = Operator.new(operator_params)
     @operator.company_email = temp.concat("@operator.onthespot.com.au")
-    if @operator.save
-      flash[:success] = "Operator account successfully created"
-      redirect_to user_login_path
+    respond_to do |format|
+      if @operator.save
+        format.html { redirect_to @operator }
+        flash[:success] = "Operator account successfully created"
+        format.json { render :show, status: :created, location: @operator }
 
-    else
-      render 'new'
+      else
+        render 'new'
+      end
     end
   end
 
@@ -217,9 +225,12 @@ class OperatorsController < ApplicationController
         time = time_value(id)
         collapse = collapse_value(counter)
         status = status_value(tracker)
+        pickup_time = time_picked_up(id)
+        checkin_time = time_checkedin(id)
+        deliver_time = time_delivered(id)
 
         # load into array
-        orders << [id, tracker, percentage, time, collapse, status]
+        orders << [id, tracker, percentage, time, collapse, status, pickup_time, checkin_time, deliver_time]
         # increment counter
         counter += 1
       end
@@ -241,8 +252,8 @@ class OperatorsController < ApplicationController
     @order_array = Pickup.all
     @array = Array.new
     @order_array.each do |order|
-      if !Payment.exists?(:order_id => order[:id])
-        @array.push(order[:id])
+      if !Payment.exists?(:order_id => order[:order_id])
+        @array.push(order[:order_id])
       end
     end
     return @array
@@ -252,8 +263,8 @@ class OperatorsController < ApplicationController
     @paid_for_array = Payment.all
     @array = Array.new
     @paid_for_array.each do |order|
-      if !Deliver.exists?(:order_id => order[:id])
-        @array.push(order[:id])
+      if Deliver.exists?(:order_id => order[:order_id])
+        @array.push(order[:order_id])
       end
     end
     return @array
@@ -263,9 +274,9 @@ class OperatorsController < ApplicationController
     @pickup_array = Pickup.all
     @array = Array.new
     @pickup_array.each do |pickup_order|
-      if !Deliver.exists?(:order_id => pickup_order[:order_id])
+      #if !Deliver.exists?(:order_id => pickup_order[:order_id])
         @array.push(pickup_order[:order_id])
-      end
+      #end
     end
     return @array
   end
@@ -309,15 +320,44 @@ class OperatorsController < ApplicationController
 
   def time_ordered( order_id )
     if order_id != nil
-      return Order.find(order_id).created_at
+      if Order.exists?(:id => order_id)
+        value = Order.find_by id: order_id
+        return value['created_at'].to_s
+      end
     else
       return "ERROR!"
     end
   end
 
-  def time_delivered( order_id )
+  def time_picked_up( order_id )
     if order_id != nil
-      return Deliver.find(order_id).created_at
+      if Pickup.exists?(:order_id => order_id)
+        value = Pickup.find_by order_id: order_id
+        return value['created_at'].to_s
+      end
+    else
+      return "ERROR!"
+    end
+  end
+
+  def time_checkedin( order_id )
+    if order_id != nil
+      if Checkingin.exists?(:order_id => order_id)
+        value = Checkingin.find_by order_id: order_id
+        return value['created_at'].to_s
+      end
+    else
+      return "ERROR!"
+    end
+  end
+
+
+  def time_delivered(order_id )
+    if order_id != nil
+      if Deliver.exists?(:order_id => order_id)
+        value = Deliver.find_by order_id: order_id
+        return value['created_at'].to_s
+      end
     else
       return "ERROR!"
     end

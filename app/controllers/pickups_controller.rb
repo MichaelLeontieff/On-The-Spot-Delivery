@@ -1,3 +1,8 @@
+# Pickups Controller
+#
+# Contains helper methods and code-behind for 'checkingin' objects
+# and their corresponding views and model
+
 class PickupsController < ApplicationController
   before_action :set_pickup, only: [:show, :edit, :update, :destroy]
 
