@@ -24,6 +24,10 @@ class OperatorsController < ApplicationController
     @orders_awaiting_charge = unpaid_orders_page_array
   end
 
+  def complete_orders_page
+    @complete_orders = complete_orders_page_array
+  end
+
   # GET /operators/1
   # GET /operators/1.json
   def show
@@ -142,6 +146,28 @@ class OperatorsController < ApplicationController
       return orders
     end
 
+  def complete_orders_page_array
+    orders = []
+    counter = 1
+
+    # for each new order
+    complete_orders_id.each do |id|
+
+      # fetch actual values
+      amount_to_charge = amount_to_charge(id)
+
+      time_ordered = time_ordered(id)
+      time_delivered = time_delivered(id)
+      collapse = collapse_value(counter)
+
+      # load into array
+      orders << [id, amount_to_charge, time_ordered, time_delivered, collapse]
+      # increment counter
+      counter += 1
+    end
+    return orders
+  end
+
     def sender_name( id )
       customer_id = Order.find(id).customer_id
       # safeguard against bad data
@@ -222,6 +248,17 @@ class OperatorsController < ApplicationController
     return @array
   end
 
+  def complete_orders_id
+    @paid_for_array = Payment.all
+    @array = Array.new
+    @paid_for_array.each do |order|
+      if !Deliver.exists?(:order_id => order[:id])
+        @array.push(order[:id])
+      end
+    end
+    return @array
+  end
+
   def in_progress_orders_id
     @pickup_array = Pickup.all
     @array = Array.new
@@ -268,8 +305,23 @@ class OperatorsController < ApplicationController
       else
         return "ERROR!"
       end
-
     end
+
+  def time_ordered( order_id )
+    if order_id != nil
+      return Order.find(order_id).created_at
+    else
+      return "ERROR!"
+    end
+  end
+
+  def time_delivered( order_id )
+    if order_id != nil
+      return Deliver.find(order_id).created_at
+    else
+      return "ERROR!"
+    end
+  end
 
     def collapse_value( value )
       return "collapse" + in_words(value)

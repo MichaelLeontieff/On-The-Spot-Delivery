@@ -1,0 +1,36 @@
+<!--order status partial-->
+
+
+<div class="panel panel-default order-state">
+  <div class="panel-heading" style="overflow: auto;">
+    <h4 class="panel-title">
+      <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#<%= collapse %>">
+
+        <div class="status-title" style="width: 50%; float: left;">
+          Order ID: <%= id %>
+        </div>
+
+        <div style="float: right;">
+          <%= amount_to_charge %>
+        </div>
+
+      </a>
+    </h4>
+  </div>
+  <div id="<%= collapse %>" class="panel-collapse collapse">
+    <div class="panel-body">
+      <table class="status-table">
+
+        <tr>
+          <td>Order Placed On: </td>
+          <td><%= time_ordered %></td>
+        </tr>
+        <tr>
+          <td>Order Delivered On: </td>
+          <td><%= time_delivered %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<!--partial end-->

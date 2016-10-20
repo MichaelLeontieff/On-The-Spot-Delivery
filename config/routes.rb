@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get 'new_orders_page', to: 'operators#new_orders_page'
   get 'in_progress_orders_page', to: 'operators#in_progress_orders_page'
   get 'unpaid_orders_page', to: 'operators#unpaid_orders_page'
+  get 'complete_orders_page', to: 'operators#complete_orders_page'
 
   get 'process_payment', to: 'payments#new'
 
