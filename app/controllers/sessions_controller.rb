@@ -50,7 +50,7 @@ class SessionsController < ApplicationController
       clear_sessions
       session[:user_id] = customer.id
       flash[:success] = "You have successfully logged in"
-      redirect_to main_page_path
+      redirect_to new_orders_page_path
     else
       flash.now[:danger] = "There was something wrong with your login information"
       render 'new'
@@ -63,7 +63,7 @@ class SessionsController < ApplicationController
       clear_sessions
       session[:driver_id] = driver.id
       flash[:success] = "You have successfully logged in"
-      redirect_to driver_management_page_path
+      redirect_to checkingin_path
     else
       flash.now[:danger] = "There was something wrong with your login information"
       render 'new'
@@ -76,7 +76,7 @@ class SessionsController < ApplicationController
       clear_sessions
       session[:operator_id] = operator.id
       flash[:success] = "You have successfully logged in"
-      redirect_to operator_management_page_path
+      redirect_to new_orders_page_path
     else
       flash.now[:danger] = "There was something wrong with your login information"
       render 'new'
