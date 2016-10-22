@@ -11,11 +11,11 @@ class Customer < ApplicationRecord
   validates :ccv, presence: true, numericality: true, length: {minimum: 3, maximum: 3}
   validates :card_expiry, presence: true
   validates :street, presence: true
-  validates :suburb, presence: true, format: { with: /\A[a-zA-Z]+\z/, message: "your suburb must only contain letters" }
+  validates :suburb, presence: true, format: { with: /\A[a-zA-Z ]+\z/, message: "your suburb must only contain letters" }
   validates :postcode, presence: true, length: {minimum: 4, maximum: 4}
-  validates :city, presence: true, format: { with: /\A[a-zA-Z]+\z/, message: "your city must only contain letters" }
+  validates :city, presence: true, format: { with: /\A[a-zA-Z ]+\z/, message: "your city must only contain letters" }
   validates :email, presence: true, length: {maximum: 100}, uniqueness: true, format: {with: VALID_EMAIL_REGEX}
-  validates :password, presence: true, length: {minimum: 8}
+  validates :password_digest, presence: true, length: {minimum: 8}
 
   has_secure_password
 end
