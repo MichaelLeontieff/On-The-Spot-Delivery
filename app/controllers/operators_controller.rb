@@ -58,7 +58,6 @@ class OperatorsController < ApplicationController
         format.html { redirect_to @operator }
         flash[:success] = "Operator account successfully created"
         format.json { render :show, status: :created, location: @operator }
-
       else
         render 'new'
       end
