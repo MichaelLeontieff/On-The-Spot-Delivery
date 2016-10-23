@@ -1,9 +1,9 @@
-<%= render("shared/errors", obj: @deliver) %>
 <%= form_for(deliver, :html => {class: "form", role: "form"}) do |f| %>
 
+    <%= render("shared/errors", obj: @deliver) %>
     <div class="form-group">
       <label for="order_id">Corresponding Order ID: </label></br>
-        <%= f.collection_select :order_id, @array,:to_s, :to_s, {:class => 'output'} %>
+        <%= f.collection_select :order_id, @array || [],:to_s, :to_s %>
     </div>
 
     <br>
@@ -22,7 +22,7 @@
 
 
 
-    <div class="form-group" style="margin-left: 220px">
+    <div class="form-group" style="">
       <label for="charge">Receiver Signature: </label></br>
         <div class="sigPad">
           <label for="name">Print your name</label>

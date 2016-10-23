@@ -1,3 +1,5 @@
 class Deliver < ApplicationRecord
-  validates :package_delivered, presence: true, format: { with: /\AYes\z/ }
+  validates :order_id, presence: true
+  validates :package_delivered, presence: true
+
 end

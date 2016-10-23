@@ -55,11 +55,13 @@ class OperatorsController < ApplicationController
     @operator.company_email = temp.concat("@operator.onthespot.com.au")
     respond_to do |format|
       if @operator.save
-        format.html { redirect_to @operator }
         flash[:success] = "Operator account successfully created"
+        format.html { redirect_to @operator }
         format.json { render :show, status: :created, location: @operator }
       else
-        render 'new'
+        @operator.company_email = ""
+        format.html { render :new }
+        format.json { render json: @operator.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -107,22 +109,23 @@ class OperatorsController < ApplicationController
       # for each unpaid order
       unpaid_orders_id.each do |id|
 
-        puts "STRING IS: " + id.to_s
+        if id != 0
 
+          puts "STRING IS: " + id.to_s
 
+          # fetch actual values
+          sender_name_var = sender_name(id)
+          customer_id = customer_id(id)
 
-        # fetch actual values
-        sender_name_var = sender_name(id)
-        customer_id = customer_id(id)
+          time = time_value(id)
+          collapse = collapse_value(counter)
+          amount_to_charge = amount_to_charge(id)
 
-        time = time_value(id)
-        collapse = collapse_value(counter)
-        amount_to_charge = amount_to_charge(id)
-
-        # load into array
-        orders << [id, sender_name_var, customer_id, time, collapse, amount_to_charge]
-        # increment counter
-        counter += 1
+          # load into array
+          orders << [id, sender_name_var, customer_id, time, collapse, amount_to_charge]
+          # increment counter
+          counter += 1
+        end
       end
       return orders
     end
@@ -134,21 +137,25 @@ class OperatorsController < ApplicationController
       # for each new order
       new_orders_id.each do |id|
 
-        # fetch helper values
-        track = tracker_value_id(id)
+        if id != 0
 
-        # fetch actual values
-        sender_name_var = sender_name(id)
-        recipient_name_var = recipient_name(id)
+          # fetch helper values
+          track = tracker_value_id(id)
 
-        time = time_value(id)
-        collapse = collapse_value(counter)
-        status = status_value(track)
+          # fetch actual values
+          sender_name_var = sender_name(id)
+          recipient_name_var = recipient_name(id)
 
-        # load into array
-        orders << [id, sender_name_var, recipient_name_var, time, collapse, status]
-        # increment counter
-        counter += 1
+          time = time_value(id)
+          collapse = collapse_value(counter)
+          status = status_value(track)
+
+          # load into array
+          orders << [id, sender_name_var, recipient_name_var, time, collapse, status]
+          # increment counter
+          counter += 1
+        end
+
       end
       return orders
     end
@@ -160,17 +167,19 @@ class OperatorsController < ApplicationController
     # for each new order
     complete_orders_id.each do |id|
 
-      # fetch actual values
-      amount_to_charge = amount_to_charge(id)
+      if id != 0
+        # fetch actual values
+        amount_to_charge = amount_to_charge(id)
 
-      time_ordered = time_ordered(id)
-      time_delivered = time_delivered(id)
-      collapse = collapse_value(counter)
+        time_ordered = time_ordered(id)
+        time_delivered = time_delivered(id)
+        collapse = collapse_value(counter)
 
-      # load into array
-      orders << [id, amount_to_charge, time_ordered, time_delivered, collapse]
-      # increment counter
-      counter += 1
+        # load into array
+        orders << [id, amount_to_charge, time_ordered, time_delivered, collapse]
+        # increment counter
+        counter += 1
+      end
     end
     return orders
   end
@@ -218,20 +227,24 @@ class OperatorsController < ApplicationController
       # for each new order
       in_progress_orders_id.each do |id|
 
-        # fetch values
-        tracker = tracker_value_id(id)
-        percentage = percentage(tracker)
-        time = time_value(id)
-        collapse = collapse_value(counter)
-        status = status_value(tracker)
-        pickup_time = time_picked_up(id)
-        checkin_time = time_checkedin(id)
-        deliver_time = time_delivered(id)
+        if id != 0
 
-        # load into array
-        orders << [id, tracker, percentage, time, collapse, status, pickup_time, checkin_time, deliver_time]
-        # increment counter
-        counter += 1
+          # fetch values
+          tracker = tracker_value_id(id)
+          percentage = percentage(tracker)
+          time = time_value(id)
+          collapse = collapse_value(counter)
+          status = status_value(tracker)
+          pickup_time = time_picked_up(id)
+          checkin_time = time_checkedin(id)
+          deliver_time = time_delivered(id)
+
+          # load into array
+          orders << [id, tracker, percentage, time, collapse, status, pickup_time, checkin_time, deliver_time]
+          # increment counter
+          counter += 1
+        end
+
       end
       return orders
     end

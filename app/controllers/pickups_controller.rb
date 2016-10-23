@@ -27,7 +27,6 @@ class PickupsController < ApplicationController
         @array.push(order[:id])
       end
     end
-
     @pickup = Pickup.new
 
   end

@@ -40,7 +40,7 @@ class DeliversController < ApplicationController
   # POST /delivers.json
   def create
     @deliver = Deliver.new(deliver_params)
-
+    @deliver.signature = "Yes"
     respond_to do |format|
       if @deliver.save
         flash[:success] = "Deliver Process Submitted"
@@ -85,6 +85,6 @@ class DeliversController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def deliver_params
-      params.require(:deliver).permit(:order_id, :package_delivered, :signature)
+      params.permit(:order_id, :package_delivered, :signature)
     end
 end

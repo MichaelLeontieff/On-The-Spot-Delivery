@@ -1,20 +1,21 @@
-<%= render("shared/errors", obj: @pickup) %>
+
+
 <%= form_for(pickup, :html => {class: "form form-right", role: "form"}) do |f| %>
 
-
+    <%= render("shared/errors", obj: @pickup) %>
 
 
     <div class="form-group">
 <label for="order_id">Corresponding Order ID: </label></br>
-<%= f.collection_select :order_id, @array,:to_s, :to_s, {:class => 'output'} %>
+<%= f.collection_select :order_id, @array || [], :to_s, :to_s %>
 </div>
 
 
 
 
     <div class="form-group">
-      <label for="charge">Payment Amount Collected: </label>
-        <%= f.text_field :charge, class: "form-control", placeholder: "order total eg: $24.00" %>
+      <label for="charge">Payment Amount Collected: $</label>
+        <%= f.text_field :charge, class: "form-control", placeholder: "24" %>
     </div>
 
     <br>
