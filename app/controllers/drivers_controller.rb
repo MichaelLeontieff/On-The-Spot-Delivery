@@ -42,6 +42,7 @@ class DriversController < ApplicationController
         flash[:success] = "Driver Account has been submitted"
         format.json { render :show, status: :created, location: @driver }
       else
+        @driver.company_email = ""
         format.html { render :new }
         format.json { render json: @driver.errors, status: :unprocessable_entity }
       end
