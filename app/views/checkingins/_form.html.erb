@@ -2,7 +2,7 @@
     <%= render("shared/errors", obj: @checkingin) %>
     <div class="form-group">
       <label for="order_id">Corresponding Order ID: </label></br>
-        <%= f.collection_select :order_id, @array || [],:to_s, :to_s, {:class => 'output'} %>
+        <%= f.collection_select :order_id, @array || ["None"],:to_s, :to_s, {:class => 'output'} %>
     </div>
 
 
