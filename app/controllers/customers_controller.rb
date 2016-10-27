@@ -33,7 +33,6 @@ class CustomersController < ApplicationController
     if @customer.save
       flash[:success] = "Customer account successfully created"
       redirect_to user_login_path
-
     else
       render 'new'
     end

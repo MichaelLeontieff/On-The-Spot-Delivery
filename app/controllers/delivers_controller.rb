@@ -49,8 +49,10 @@ class DeliversController < ApplicationController
         format.html { redirect_to @deliver }
         format.json { render :show, status: :created, location: @deliver }
       else
-        format.html { render :new }
-        format.json { render json: @deliver.errors, status: :unprocessable_entity }
+        flash[:danger] = "Deliver Form failed, please check your input and make sure you've selected an order ID"
+        format.html { redirect_to new_deliver_path }
+        # format.html { render :new }
+        # format.json { render json: @deliver.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -88,7 +90,5 @@ class DeliversController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def deliver_params
       params.require(:deliver).permit(:order_id, :signature)
-
-      #params.permit(:order_id, :package_delivered, :signature)
     end
 end

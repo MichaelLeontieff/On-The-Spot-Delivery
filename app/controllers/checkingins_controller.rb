@@ -42,15 +42,16 @@ class CheckinginsController < ApplicationController
   # POST /checkingins.json
   def create
     @checkingin = Checkingin.new(checkingin_params)
-
     respond_to do |format|
       if @checkingin.save
         flash[:success] = "Check-in Process Submitted"
         format.html { redirect_to @checkingin }
         format.json { render :show, status: :created, location: @checkingin }
       else
-        format.html { render :new }
-        format.json { render json: @checkingin.errors, status: :unprocessable_entity }
+        flash[:danger] = "Check-in Form failed, please check your input and make sure you've selected an order ID"
+        format.html { redirect_to new_checkingin_path }
+        # format.html { render :new }
+        # format.json { render json: @checkingin.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -87,6 +88,6 @@ class CheckinginsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def checkingin_params
-      params.require(:checkingin).permit(:order_id)
+      params.require(:checkingin).permit(:order_id, :checkedin)
     end
 end

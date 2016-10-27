@@ -43,15 +43,15 @@ class PickupsController < ApplicationController
   # POST /pickups.json
   def create
     @pickup = Pickup.new(pickup_params)
-
     respond_to do |format|
       if @pickup.save
         flash[:success] = "Pickup Process Submitted"
         format.html { redirect_to @pickup }
         format.json { render :show, status: :created, location: @pickup }
       else
-        format.html { render :new }
-        format.json { render json: @pickup.errors, status: :unprocessable_entity }
+        flash[:danger] = "Pickup Form failed, please check your input and make sure you've selected an order ID"
+        format.html { redirect_to new_pickup_path }
+        # format.json { render json: @pickup.errors, status: :unprocessable_entity }
       end
     end
   end

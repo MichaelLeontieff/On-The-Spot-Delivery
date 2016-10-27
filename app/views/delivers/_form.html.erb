@@ -1,4 +1,4 @@
-<%= form_for(deliver, :html => {class: "form", role: "form"}) do |f| %>
+<%= form_for(@deliver, :html => {class: "form", role: "form"}) do |f| %>
 
     <%= render("shared/errors", obj: @deliver) %>
     <div class="form-group">
@@ -26,7 +26,7 @@
           <div class="sig">
             <div class="typed"></div>
             <canvas class="pad" width="200" height="55"></canvas>
-            <%= f.hidden_field :signature, {:class => 'output', :name => 'signature', :value => "yes" } %>
+            <%= f.hidden_field :signature, :value => 'yes' %>
           </div>
         </div>
     </div>
