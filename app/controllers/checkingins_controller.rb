@@ -19,14 +19,19 @@ class CheckinginsController < ApplicationController
 
   # GET /checkingins/new
   def new
-    @pickup_array = Pickup.all
-    @array = Array.new
-    @pickup_array.each do |order|
+    @checkingin = Checkingin.new
+    @array = generate_orders_array
+  end
+
+  def generate_orders_array
+    pickup_array = Pickup.all
+    array = Array.new
+    pickup_array.each do |order|
       if !Checkingin.exists?(:order_id => order[:order_id])
-        @array.push(order[:order_id])
+        array.push(order[:order_id])
       end
     end
-    @checkingin = Checkingin.new
+    return array
   end
 
   # GET /checkingins/1/edit
@@ -82,6 +87,6 @@ class CheckinginsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def checkingin_params
-      params.require(:checkingin).permit(:order_id, :checked_in)
+      params.require(:checkingin).permit(:order_id)
     end
 end

@@ -10,11 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161016114601) do
+ActiveRecord::Schema.define(version: 20161027024705) do
+
+  create_table "Delivers", force: :cascade do |t|
+    t.integer  "order_id"
+    t.string   "signature"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "Pickups", force: :cascade do |t|
+    t.integer  "order_id"
+    t.string   "signature"
+    t.string   "charge"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "checkingins", force: :cascade do |t|
     t.integer  "order_id"
-    t.string   "checked_in"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,14 +49,6 @@ ActiveRecord::Schema.define(version: 20161016114601) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-  end
-
-  create_table "delivers", force: :cascade do |t|
-    t.integer  "order_id"
-    t.string   "package_delivered"
-    t.string   "signature"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
   end
 
   create_table "drivers", force: :cascade do |t|
@@ -82,15 +88,6 @@ ActiveRecord::Schema.define(version: 20161016114601) do
   create_table "payments", force: :cascade do |t|
     t.string   "order_id"
     t.string   "paid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "pickups", force: :cascade do |t|
-    t.integer  "order_id"
-    t.string   "collected"
-    t.string   "signature"
-    t.string   "charge"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

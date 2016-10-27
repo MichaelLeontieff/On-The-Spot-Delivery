@@ -1,17 +1,17 @@
 
 
-<%= form_for(pickup, :html => {class: "form form-right", role: "form"}) do |f| %>
-
+<%= form_for(@pickup, :html => {class: "form form-right", role: "form"}) do |f| %>
     <%= render("shared/errors", obj: @pickup) %>
 
 
     <div class="form-group">
 <label for="order_id">Corresponding Order ID: </label></br>
-<%= f.collection_select :order_id, @array || ["None"], :to_s, :to_s %>
-</div>
 
 
+      <%= f.collection_select :order_id, @array || [0],:to_s, :to_s, {:include_blank => false} %>
 
+
+    </div>
 
     <div class="form-group">
       <label for="charge">Payment Amount Collected: $</label>
@@ -19,21 +19,6 @@
     </div>
 
     <br>
-
-    <div class="form-group">
-      <label for="collected">Package(s) Collected: </label></br>
-
-            <label>
-              <%= f.radio_button(:collected, "Yes", class: "") %>
-              <%= label_tag(:collected, "Yes", class: "radiobutton") %>
-            </label>
-
-            <label>
-              <%= f.radio_button(:collected, "No", class: "") %>
-              <%= label_tag(:collected, "No", class: "radiobutton") %>
-            </label>
-
-    </div>
 
     <div class="form-group">
       <label for="signature">Signature Required: </label></br>

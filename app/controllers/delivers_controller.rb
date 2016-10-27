@@ -19,17 +19,19 @@ class DeliversController < ApplicationController
 
   # GET /delivers/new
   def new
+    @array = generate_orders_array
+    @deliver = Deliver.new
+  end
 
-    @checkin_array = Checkingin.all
-    @array = Array.new
-    @checkin_array.each do |order|
+  def generate_orders_array
+    checkingin_array = Checkingin.all
+    array = Array.new
+    checkingin_array.each do |order|
       if !Deliver.exists?(:order_id => order[:order_id])
-        @array.push(order[:order_id])
+        array.push(order[:order_id])
       end
     end
-
-
-    @deliver = Deliver.new
+    return array
   end
 
   # GET /delivers/1/edit
@@ -85,7 +87,7 @@ class DeliversController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def deliver_params
-      params.require(:deliver).permit(:order_id, :package_delivered, :signature)
+      params.require(:deliver).permit(:order_id, :signature)
 
       #params.permit(:order_id, :package_delivered, :signature)
     end

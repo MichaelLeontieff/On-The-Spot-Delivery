@@ -2,23 +2,10 @@
     <%= render("shared/errors", obj: @checkingin) %>
     <div class="form-group">
       <label for="order_id">Corresponding Order ID: </label></br>
-        <%= f.collection_select :order_id, @array || ["None"],:to_s, :to_s, {:class => 'output'} %>
-    </div>
+
+      <%= f.collection_select :order_id, @array || [],:to_s, :to_s, {:include_blank => false} %>
 
 
-
-
-    <div class="form-group">
-      <label for="collected">Check In: </label></br>
-            <label>
-              <%= f.radio_button(:checked_in, "Yes", class: "") %>
-              <%= label_tag(:checked_in, "Yes", class: "radiobutton") %>
-            </label>
-
-            <label>
-              <%= f.radio_button(:checked_in, "No", class: "") %>
-              <%= label_tag(:checked_in, "No", class: "radiobutton") %>
-            </label>
 
     </div>
 

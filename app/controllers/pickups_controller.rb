@@ -20,15 +20,19 @@ class PickupsController < ApplicationController
 
   # GET /pickups/new
   def new
-    @orders_array = Order.all
-    @array = Array.new
-    @orders_array.each do |order|
+    @pickup = Pickup.new
+    @array = generate_orders_array
+  end
+
+  def generate_orders_array
+    order_array = Order.all
+    array = Array.new
+    order_array.each do |order|
       if !Pickup.exists?(:order_id => order[:id])
-        @array.push(order[:id])
+        array.push(order[:id])
       end
     end
-    @pickup = Pickup.new
-
+    return array
   end
 
   # GET /pickups/1/edit
@@ -84,6 +88,6 @@ class PickupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pickup_params
-      params.require(:pickup).permit(:order_id, :collected, :signature, :charge)
+      params.require(:pickup).permit(:order_id, :signature, :charge)
     end
 end

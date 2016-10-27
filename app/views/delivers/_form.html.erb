@@ -3,22 +3,11 @@
     <%= render("shared/errors", obj: @deliver) %>
     <div class="form-group">
       <label for="order_id">Corresponding Order ID: </label></br>
-        <%= f.collection_select :order_id, @array || [],:to_s, :to_s %>
+        <%= f.collection_select :order_id, @array || [],:to_s, :to_s, {:include_blank => false} %>
     </div>
 
     <br>
 
-    <div class="form-group">
-      <label for="collected">Package Delivered: </label></br>
-            <label>
-              <%= f.radio_button(:package_delivered, "Yes", class: "") %>
-              <%= label_tag(:package_delivered, "Yes", class: "radiobutton") %>
-            </label>
-            <label>
-              <%= f.radio_button(:package_delivered, "No", class: "") %>
-              <%= label_tag(:package_delivered, "No", class: "radiobutton") %>
-            </label>
-    </div>
 
 
 

@@ -23,6 +23,7 @@ class PaymentsController < ApplicationController
     @customer_id = params[:user_id]
     @order_pass_id = params[:order_id]
     @info = fetch_payment_information
+    @charge = params[:charge]
     @names_array = fetch_payment_labels
   end
 

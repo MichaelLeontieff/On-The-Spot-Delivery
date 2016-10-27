@@ -3,6 +3,7 @@
 
     <label>Customer Payment Information: </label>
     <table class="payment-info-table">
+      <tr><td><b>Amount to charge:</b></td><td><%= @charge %></td></tr>
       <% counter = 0 %>
       <% @info.each do |item| %>
           <tr>
